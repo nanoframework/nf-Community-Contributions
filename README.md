@@ -45,6 +45,14 @@ If you have a contribution, fork this repo and submit a PR. One of the core team
 - [ ] Edit the repo [README.md](README.md) to include the mention and link to your contribution. Make sure you put it under the proper section and that the link to it is correct.
 - [ ] Make sure it builds.
 
+### I don't want to store my code here
+
+That's fine. 
+
+We understand that you want to keep it on your own repo. If that's the case it's OK to add it as Git sub-module that will link to your repo.
+
+Or could it be that you've simply stumbled on a good piece of code and just want to share that. Then you submit a PR with a simple readme.md linking to that external resouce and a brief explanation about it.
+
 
 ## Feedback and documentation
 
