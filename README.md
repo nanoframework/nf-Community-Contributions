@@ -16,7 +16,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 ### Drivers
 <table>
  <tr>
-  <td><!--<a href="Drivers/driver1">Driver One</a>--></td>
+  <td><a href="https://github.com/Dweaver309/nanoframework.SS1306>NanoFramework">SS1306 Oled 128 x 64 display driver</a></td>
   <td><!--<a href="Drivers/driver2">Driver Two</a>--></td>
   <td><!--<a href="Drivers/driver3">Driver Three</a>--></td>
  </tr>
