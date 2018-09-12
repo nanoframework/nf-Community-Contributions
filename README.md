@@ -17,6 +17,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 <table>
  <tr>
   <td><a href="drivers/OLED-SS1306-display/README.md">OLED SS1306 display</a></td>
+  <td><a href="drivers/EEprom-24LC256/README.md">EEprom 24LC256 read and write driver</a></td>
   <td><!--<a href="Drivers/driver2">Driver Two</a>--></td>
   <td><!--<a href="Drivers/driver3">Driver Three</a>--></td>
  </tr>
