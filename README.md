@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
+[![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
 
 
 ![nanoFramework logo](https://github.com/nanoframework/Home/blob/master/resources/logo/nanoFramework-repo-logo.png)
@@ -73,7 +73,7 @@ The contributions are _owned_ by the contributor who submited it and credit is d
 
 ## License
 
-The community target contributions are licensed under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+Each contribution has it's own license. Please check the respective folder.
 
 
 ## Code of Conduct
