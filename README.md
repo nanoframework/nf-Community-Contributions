@@ -26,7 +26,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 ### Extensions
 <table>
  <tr>
-  <td><a href="extensions/stm32/gpiocontroller/README.md">GpioController extensions</a></td>
+  <td><a href="extensions/stm32/gpiocontroller/README.md">GpioController STM32 extensions</a></td>
   <td><!--<a href="Utility/util2">Utility Two</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
