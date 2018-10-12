@@ -17,10 +17,10 @@
     <projectUrl>https://github.com/nanoframework/nf-Community-Contributions/extensions/stm32/gpiocontroller</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/97d0e092247f0716db6d4b47b7d1d1ad</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/nanoframework/nf-Community-Contributions/master/extensions/stm32/gpiocontroller/LICENSE</licenseUrl>
+    <licenseUrl>https://github.com/nanoframework/nf-Community-Contributions/blob/master/extensions/stm32/gpiocontroller/LICENSE</licenseUrl>
     <copyright>Copyright 2018 Eclo Solutions</copyright>
     <dependencies>
-			  <dependency id="nanoFramework.Windows.Devices.Gpio" version="*"/>
+  	<dependency id="nanoFramework.Windows.Devices.Gpio" version="*"/>
     </dependencies>
     <references></references>
     <tags>nanoFramework, nano Framework, NETNF, NETMF, Micro Framework, Gpio, STM32, .net </tags>
