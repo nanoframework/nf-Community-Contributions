@@ -10,4 +10,4 @@ Like this:
 
 Add this NuGet package to your project: `nanoFramework.Extensions.Stm32.GpioController`.
 
-Contributor: @josesimoes
+Contributor: [José Simões](https://github.com/josesimoes)
