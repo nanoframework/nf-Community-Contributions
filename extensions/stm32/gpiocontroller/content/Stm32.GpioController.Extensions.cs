@@ -27,7 +27,7 @@ namespace Windows.Devices.Gpio
             char port, 
             byte pin)
         {
-            return controller.OpenPin(port, pin, Windows.Devices.Gpio.GpioSharingMode.Exclusive);
+            return controller.OpenStm32Pin(port, pin, Windows.Devices.Gpio.GpioSharingMode.Exclusive);
         }
 
         /// <summary>
