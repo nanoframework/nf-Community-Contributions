@@ -112,6 +112,16 @@ jobs:
     condition: and( succeeded(), ne(variables['system.pullrequest.isfork'], true) )
     displayName: Publish deployables artifacts
 
+  # push NuGet class lib package to NuGet (always happens except on PR builds)
+  - task: NuGetCommand@2
+    inputs:
+      command: push
+      nuGetFeedType: external
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+      publishFeedCredentials: 'GitHubToken'
+    condition: and( succeeded(), not( startsWith(variables['Build.SourceBranch'], 'refs/pull') ) )
+    displayName: Push NuGet packages to NuGet
+
   # step from template @ nf-tools repo
   - template: azure-pipelines-templates/discord-webhook-task.yml@templates  
     parameters:
