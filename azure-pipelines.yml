@@ -1,0 +1,130 @@
+trigger:
+  branches:
+    include:
+    - master
+  paths:
+    exclude:
+    - /*.md
+    - .gitignore
+
+pr:
+  branches:
+    include:
+    - master
+  autoCancel: true
+
+# add nf-tools repo to resources (for Azure Pipelines templates)
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: nanoframework/nf-tools
+      endpoint: nanoFramework
+
+jobs:
+
+##############################
+- job: Get_Build_Options
+  pool:
+    vmImage: 'VS2017-Win2016'
+
+  steps:
+  - checkout: self
+
+  # check which project(s) have changed
+  - powershell: |
+      git config --global user.email "nfbot"
+      git config --global user.name "nanoframework@outlook.com"
+
+      $auth = "basic $([System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes(":$(GitHubToken)"))))"
+
+      $commit = Invoke-RestMethod -Uri "https://api.github.com/repos/nanoframework/nf-tools/commits/$(Build.SourceVersion)" -Header @{"Authorization"="$auth"} -ContentType "application/json" -Method GET
+      Write-host "Files changed:"
+      $commit.files | % {$_.filename}
+
+      if ( $commit.files.filename -like "*extensions\stm32\gpiocontroller*" )
+      {
+        echo "##vso[task.setvariable variable=BUILD_STM32_GPIOCONTROLLER;isOutput=true]true"  
+      }
+
+    name: BuildOptions
+    displayName: get list of changed paths
+
+# build jobs
+
+# STM32 GpioController extension
+- job: Build_STM32_GpioController
+  # skip build if there are no changes 
+  condition: eq( dependencies.Get_Build_Options.outputs['BuildOptions.BUILD_STM32_GPIOCONTROLLER'], true )
+  dependsOn:
+  - Get_Build_Options
+
+  pool:
+    vmImage: 'VS2017-Win2016'
+
+  variables:
+    buildPlatform: 'Any CPU'
+    buildConfiguration: 'Release'
+    major: 1
+    # creates a counter called versioncounter and assigns it to the minor variable
+    minor: $[counter('versioncounter', 0)]
+
+  steps:
+
+  - checkout: self
+
+  - task: NuGetToolInstaller@0
+
+  - task: NuGetCommand@2
+    inputs:
+      restoreSolution: '$(solution)'
+      verbosityRestore: quiet
+
+  - task: VSBuild@1
+    inputs:
+      solution: '$(solution)'
+      platform: '$(buildPlatform)'
+      configuration: '$(buildConfiguration)'
+
+  - task: NuGetCommand@2
+    inputs:
+      command: 'custom' 
+      arguments: 'pack extensions\stm32\gpiocontroller\package.nuspec -Version $(major).$(minor) -Symbols'
+    condition: succeeded()
+    displayName: Pack NuGet with class library
+
+  - task: CopyFiles@1
+    inputs:
+      sourceFolder: $(Build.SourcesDirectory)
+      Contents: |
+        **\*nanoFramework.Extensions.Stm32.GpioController*.nupkg
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+      flattenFolders: true
+    condition: succeeded()
+    displayName: Collecting deployable artifacts
+
+  # publish artifacts (only possible if this is not a PR originated on a fork)
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: deployables
+      ArtifactType: Container
+    condition: and( succeeded(), ne(variables['system.pullrequest.isfork'], true) )
+    displayName: Publish deployables artifacts
+
+  # push NuGet class lib package to NuGet (always happens except on PR builds)
+  - task: NuGetCommand@2
+    inputs:
+      command: push
+      nuGetFeedType: external
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+      publishFeedCredentials: 'NuGetEcloSolutions'
+    condition: and( succeeded(), not( startsWith(variables['Build.SourceBranch'], 'refs/pull') ) )
+    displayName: Push NuGet packages to NuGet
+
+  # step from template @ nf-tools repo
+  - template: azure-pipelines-templates/discord-webhook-task.yml@templates  
+    parameters:
+      status: 'failure'
+      webhookUrl: '$(DiscordWebhook)'
+      message: 'SMT32 GpioController extension'
