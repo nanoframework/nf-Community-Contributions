@@ -16,7 +16,7 @@ namespace Windows.Devices.Gpio
         /// Opens a connection to the specified general-purpose I/O (GPIO) pin of a STM32 MCU in exclusive mode.
         /// </summary>
         /// <param name="controller"></param>
-        /// <param name="port">The port letter, as it's refered to in the product documentation.</param>
+        /// <param name="port">The port letter, as it's refereed to in the product documentation.</param>
         /// <param name="pin">The pin number of the specified port.</param>
         /// <returns>The opened GPIO pin.</returns>
         /// <remarks>
@@ -34,7 +34,7 @@ namespace Windows.Devices.Gpio
         /// Opens a connection to the specified general-purpose I/O (GPIO) pin of a STM32 target in exclusive mode.
         /// </summary>
         /// <param name="controller"></param>
-        /// <param name="port">The port letter, as it's refered to in the product documentation.</param>
+        /// <param name="port">The port letter, as it's refereed to in the product documentation.</param>
         /// <param name="pin">The pin number of the specified port.</param>
         /// <param name="sharingMode">The mode in which you want to open the GPIO pin, which determines whether other connections to the pin can be opened while you have the pin open.</param>
         /// <returns>The opened GPIO pin.</returns>
