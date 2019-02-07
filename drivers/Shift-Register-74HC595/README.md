@@ -56,4 +56,4 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 ![ScreenShot](https://github.com/Dweaver309/nf-Community-Contributions/blob/master/drivers/Shift-Register-74HC595/Images/ShiftRegisterBreadBoard.jpg)
 
 
-Contributor: @Dweaver309
+Contributor: David Weaver
