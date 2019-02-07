@@ -49,7 +49,7 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 
 4. Pulses the Clock pin high and then low to send the data to the shift register
 
-5. After looping though the 8 bits of data the "Latch" pin is pulling high to activate the shift register pins to the current bits state 
+5. After looping though the 8 bits of data the "Latch" pin is pulled high to activate the shift register pins to the current bits state 
 
 ## Software running on the ESP32 Dev C computer
 
