@@ -35,7 +35,7 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 
 ## Understanding the software
 
-- The driver is first initialized by calling the constructor like this HC595 ShiftRegister = new HC595(Clock, Data, Latch);
+- The driver is first initialized by calling the constructor like this HC595 ShiftRegister = new HC595(Clock, Data, Latch)
 
 - The pin state is changed by the method SetPin(Pin,State) Example: ShiftRegister.SetPin(7, false)
 
@@ -50,6 +50,10 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 4. Pulses the Clock pin high and then low to send the data to the shift register
 
 5. After looping though the 8 bits of data the "Latch" pin is pulling high to activate the shift register pins to the current bits state 
+
+## Software running on the ESP32 Dev C computer
+
+![ScreenShot](https://github.com/Dweaver309/nf-Community-Contributions/blob/master/drivers/Shift-Register-74HC595/Images/ShiftRegisterBreadBoard.jpg)
 
 
 Contributor: @Dweaver309
