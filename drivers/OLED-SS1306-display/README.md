@@ -8,4 +8,4 @@ Source Code: https://github.com/Dweaver309/nanoframework.SS1306
 
 Reference: https://www.hackster.io/dweaver309/oled-display-driver-for-nanoframework-8744e7
 
-Contributor: @Dweaver309
+Contributor: [David E Weaver](https://github.com/Dweaver309)

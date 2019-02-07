@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
+[![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
 
 
 ![nanoFramework logo](https://github.com/nanoframework/Home/blob/master/resources/logo/nanoFramework-repo-logo.png)
@@ -19,8 +19,20 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/OLED-SS1306-display/README.md">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256/README.md">24LC256 EEPROM</a></td>
   <td><a href="drivers/WiFi-ESP8266/README.md">ESP8266 serial WiFi</a></td>
+ </tr>
+ <tr>
   <td><a href="drivers/Shift-Register-74HC595/README.md">74HC595 Shift Register</a></td>
   <td><!--<a href="Drivers/driver3">Driver Three</a>--></td>
+  <td><!--<a href="Drivers/driver3">Driver Three</a>--></td>   
+ </tr>
+</table>
+
+### Extensions
+<table>
+ <tr>
+  <td><a href="extensions/stm32/gpiocontroller/README.md">GpioController STM32 extensions</a></td>
+  <td><!--<a href="Utility/util2">Utility Two</a>--></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
 </table>
 
@@ -74,7 +86,7 @@ The contributions are _owned_ by the contributor who submited it and credit is d
 
 ## License
 
-The community target contributions are licensed under the [Apache 2.0 license](http://www.apache.org/licenses/LICENSE-2.0).
+Each contribution has it's own license. Please check the respective folder.
 
 
 ## Code of Conduct

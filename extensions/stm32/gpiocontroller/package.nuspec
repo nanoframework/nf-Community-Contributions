@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>nanoFramework.Extensions.Stm32.GpioController</id>
+    <title>nanoFramework.Extensions.Stm32.GpioController</title>
+    <version>1.0.0</version>
+    <authors>Eclo Solutions</authors>
+    <owners>Eclo Solutions</owners>
+    <description>
+      Extensions for Windows.Devices.Gpio.GpioController class enhacing support for STM32 MCUs in .NET nanoFramework.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      This is an extension for .NET nanoFramework enhacing support for Windows.Devices.Gpio.GpioController when using STM32 MCUs.
+    </summary>
+    <projectUrl>https://github.com/nanoframework/nf-Community-Contributions/extensions/stm32/gpiocontroller</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/97d0e092247f0716db6d4b47b7d1d1ad</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/nanoframework/nf-Community-Contributions/blob/master/extensions/stm32/gpiocontroller/LICENSE</licenseUrl>
+    <copyright>Copyright 2018 Eclo Solutions</copyright>
+    <dependencies>
+  	<dependency id="nanoFramework.Windows.Devices.Gpio" version="*"/>
+    </dependencies>
+    <references></references>
+    <tags>nanoFramework, nano Framework, NETNF, NETMF, Micro Framework, Gpio, STM32, .net </tags>
+  </metadata>
+  <files>
+    <file src="content\Stm32.GpioController.Extensions.cs" target="content" />
+  </files>
+</package>
