@@ -31,7 +31,7 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 
 - Master Reset is connected to VCC
 
-- GND is connected to round
+- GND is connected to ground
 
 ## Understanding the software
 
