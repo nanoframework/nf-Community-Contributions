@@ -21,7 +21,17 @@ You can find the video for this guide  [here](https://github.com/Dweaver309/nf-C
 
 ![ScreenShot](https://github.com/Dweaver309/nf-Community-Contributions/blob/master/drivers/Shift-Register-74HC595/Images/74HC595Pins.png)
 
+- The Q1 to Q7 pins are the new output pins they are in reverse order Q7 is Pin 0 and Q1 is Pin 7
 
+- VCC is connected to 3.3 volts or 5 volts
+
+- Data, Latch, Clock are connected to any three digital pins 
+
+- Output Enable is connected to ground
+
+- Master Reset is connected to VCC
+
+- GND is connected to the devices ground
 
 
 Contributor: @Dweaver309
