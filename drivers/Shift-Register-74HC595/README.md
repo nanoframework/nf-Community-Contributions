@@ -33,5 +33,23 @@ You can find the video for the fritzing diagram above [here](https://github.com/
 
 - GND is connected to the devices ground
 
+## Understanding the software
+
+- The driver is first initialized by calling the constructor like this HC595 ShiftRegister = new HC595(Clock, Data, Latch);
+
+- The pin state is changed by the method SetPin(Pin,State) Example: ShiftRegister.SetPin(7, false)
+
+- The SetPin method changes the pin state doing the following
+
+1. Sets the "Latch" pin low
+
+2. Changes the Bit array to the current state
+
+3. Loops through each bit and sets the data pin high for 1 and low for 0
+
+4. Pulses the Clock pin high and then low to send the data to the shift register
+
+5. After looping though the 8 bits of data the "Latch" pin is pulling high to activate the shift register pins to the current bits state 
+
 
 Contributor: @Dweaver309
