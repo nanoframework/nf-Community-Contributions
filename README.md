@@ -19,6 +19,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/OLED-SS1306-display/README.md">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256/README.md">24LC256 EEPROM</a></td>
   <td><a href="drivers/WiFi-ESP8266/README.md">ESP8266 serial WiFi</a></td>
+  <td><a href="drivers/TFT-ST7735-display/README.md">TFT ST7735 display</a></td>
  </tr>
  <tr>
   <td><a href="drivers/Shift-Register-74HC595/README.md">74HC595 Shift Register</a></td>
