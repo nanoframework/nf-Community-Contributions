@@ -49,7 +49,7 @@
 
 ## Software running on the ESP32 Dev C computer
 
-![ScreenShot](https://github.com/Dweaver309/nf-Community-Contributions/blob/master/drivers/Shift-Register-74HC595/Images/ShiftRegisterBreadBoard.jpg)
+![ScreenShot](https://github.com/Dweaver309/Shift-Register-74HC595/blob/Images/ShiftRegisterBreadBoard.jpg)
 
 
 Contributor: David Weaver
