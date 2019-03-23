@@ -393,7 +393,24 @@ namespace nanoFramework.Driver
         private void WriteData(byte[] data)
         {
             _controlPin.Write(GpioPinValue.High);
-            _spi.Write(data);
+            
+            if(data.Length>4000)
+             {
+                int diff = data.Length - 4000;
+
+                byte[] buffer1 = new byte[4000];
+                byte[] buffer2 = new byte[diff];
+
+                Array.Copy(data, 0, buffer1, 0, 3999);
+                Array.Copy(data, 4000, buffer2, 0, diff-1);
+
+                _spi.Write(buffer1);
+                _spi.Write(buffer2);
+            }
+             else
+            { 
+                _spi.Write(data);
+            }
         }
 
         private void WriteCommand(byte command)
