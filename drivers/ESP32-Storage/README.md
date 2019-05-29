@@ -1,6 +1,6 @@
 ﻿# SD card and internal storage support for nanoFramework
 
-Thanks to Adrian Soundly and Jose Somoes and everyone helped make "Storage" possible for nanoFramework.
+Thanks to Adrian Soundy and José Simões and everyone helped make "Storage" possible for nanoFramework.
 Storage is still under construction check the samples here https://github.com/nanoframework/Samples/tree/master/samples/Storage
 for updates and changes. This library is for SD card readers connected using SPI. Other SD card options below were not tested.
 
