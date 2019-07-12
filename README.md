@@ -18,6 +18,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  <tr>
   <td><a href="drivers/OLED-SS1306-display/README.md">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256/README.md">24LC256 EEPROM</a></td>
+  <td><a href="drivers/EEPROM-AT24C128C/README.md">AT24C128C EEPROM</a></td>
   <td><a href="drivers/WiFi-ESP8266/README.md">ESP8266 serial WiFi</a></td>
  </tr>
  <tr>
