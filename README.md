@@ -25,7 +25,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/Shift-Register-74HC595/README.md">74HC595 Shift Register</a></td>
   <td><a href="drivers/TFT-ST7735-display/README.md">TFT ST7735 display</a></td>
   <td><a href="drivers/ESP32-Storage/README.md">ESP32 Storage</a></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><a href="drivers/Simple-Web-Server/README.md">Web Server</a></td>
  </tr>
 </table>
 
