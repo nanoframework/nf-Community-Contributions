@@ -16,29 +16,29 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 ### Drivers
 <table>
  <tr>
-  <td><a href="drivers/OLED-SS1306-display/README.md">OLED SS1306 display</a></td>
-  <td><a href="drivers/EEPROM-24LC256/README.md">24LC256 EEPROM</a></td>
-  <td><a href="drivers/EEPROM-AT24C128C/README.md">AT24C128C EEPROM</a></td>
-  <td><a href="drivers/WiFi-ESP8266/README.md">ESP8266 serial WiFi</a></td>
+  <td><a href="drivers/OLED-SS1306-display">OLED SS1306 display</a></td>
+  <td><a href="drivers/EEPROM-24LC256">24LC256 EEPROM</a></td>
+  <td><a href="drivers/EEPROM-AT24C128C">AT24C128C EEPROM</a></td>
+  <td><a href="drivers/WiFi-ESP8266">ESP8266 serial WiFi</a></td>
  </tr>
  <tr>
-  <td><a href="drivers/Shift-Register-74HC595/README.md">74HC595 Shift Register</a></td>
-  <td><a href="drivers/TFT-ST7735-display/README.md">TFT ST7735 display</a></td>
-  <td><a href="drivers/ESP32-Storage/README.md">ESP32 Storage</a></td>
-  <td><a href="drivers/Simple-Web-Server/README.md">Web Server</a></td>
+  <td><a href="drivers/Shift-Register-74HC595">74HC595 Shift Register</a></td>
+  <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td>
+  <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td>
+  <td><a href="drivers/Simple-Web-Server">Web Server</a></td>
  </tr>
  <tr>
-  <td><a href="drivers/Keypad-PCF8574/README.md">Keypad with PCF8574</a></td>
-  <!-- <td><a href="drivers/TFT-ST7735-display/README.md">TFT ST7735 display</a></td> -->
-  <!-- <td><a href="drivers/ESP32-Storage/README.md">ESP32 Storage</a></td> -->
-  <!-- <td><a href="drivers/Simple-Web-Server/README.md">Web Server</a></td> -->
+  <td><a href="drivers/Keypad-PCF8574">Keypad with PCF8574</a></td>
+  <!-- <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td> -->
+  <!-- <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td> -->
+  <!-- <td><a href="drivers/Simple-Web-Server">Web Server</a></td> -->
  </tr>
 </table>
 
 ### Extensions
 <table>
  <tr>
-  <td><a href="extensions/stm32/gpiocontroller/README.md">GpioController STM32 extensions</a></td>
+  <td><a href="extensions/stm32/gpiocontroller">GpioController STM32 extensions</a></td>
   <td><!--<a href="Utility/util2">Utility Two</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
