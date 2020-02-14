@@ -27,6 +27,12 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/ESP32-Storage/README.md">ESP32 Storage</a></td>
   <td><a href="drivers/Simple-Web-Server/README.md">Web Server</a></td>
  </tr>
+ <tr>
+  <td><a href="drivers/Keypad-PCF8574/README.md">Keypad with PCF8574</a></td>
+  <!-- <td><a href="drivers/TFT-ST7735-display/README.md">TFT ST7735 display</a></td> -->
+  <!-- <td><a href="drivers/ESP32-Storage/README.md">ESP32 Storage</a></td> -->
+  <!-- <td><a href="drivers/Simple-Web-Server/README.md">Web Server</a></td> -->
+ </tr>
 </table>
 
 ### Extensions
