@@ -270,12 +270,11 @@ namespace nanoFramework.Hardware.Drivers
                              _lastKey.Row != row)
                     {
                         // different!!
-                        // store it
-                        _lastKey = new KeyPressedEventArgs(column, row);
-                        
-                        //set key if mapping provided
+                       // store it and set key if mapping provided
                         if (KeyMap != null)
-                            _lastKey.Key = KeyMap[row - 1][column - 1];
+                            _lastKey = new KeyPressedEventArgs(column, row, KeyMap[row - 1][column - 1]);
+                        else
+                            _lastKey = new KeyPressedEventArgs(column, row, ' ');
 
                         // fire event
                         OnKeyPressed(_lastKey);
@@ -286,12 +285,11 @@ namespace nanoFramework.Hardware.Drivers
                     if (column != -1 &&
                         row != -1)
                     {
-                        // store it
-                        _lastKey = new KeyPressedEventArgs(column, row);
-                        
-                        //set key if mapping provided
+                        // store it and set key if mapping provided
                         if (KeyMap != null)
-                            _lastKey.Key = KeyMap[row - 1][column - 1];
+                            _lastKey = new KeyPressedEventArgs(column, row, KeyMap[row - 1][column - 1]);
+                        else
+                            _lastKey = new KeyPressedEventArgs(column, row, ' ');
 
                         // fire event
                         OnKeyPressed(_lastKey);
