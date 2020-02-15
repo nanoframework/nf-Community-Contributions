@@ -9,6 +9,7 @@ namespace nanoFramework.Hardware.Drivers
     {
         private readonly sbyte _column;
         private readonly sbyte _row;
+        private readonly char _key;
 
         /// <summary>
         /// Column index of the pressed key.
@@ -20,15 +21,16 @@ namespace nanoFramework.Hardware.Drivers
         /// </summary>
         public sbyte Row => _row;
         
-        /// <summary>
-        /// Key selected if any is defined by keymap.
+         // <summary>
+        /// Row index of the pressed key.
         /// </summary>
-        public char Key { get; set; }
+        public char Key => _key;
 
-        public KeyPressedEventArgs(sbyte column, sbyte row)
+        public KeyPressedEventArgs(sbyte column, sbyte row, char key)
         {
-            _column = column;
-            _row = row;
+            _column = row;
+            _row = column;
+            _key = key;
         }
     }
 }
