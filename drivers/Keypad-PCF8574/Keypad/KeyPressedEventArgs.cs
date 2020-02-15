@@ -19,6 +19,11 @@ namespace nanoFramework.Hardware.Drivers
         /// Row index of the pressed key.
         /// </summary>
         public sbyte Row => _row;
+        
+        /// <summary>
+        /// Key selected if any is defined by keymap.
+        /// </summary>
+        public char Key { get; set; }
 
         public KeyPressedEventArgs(sbyte column, sbyte row)
         {
