@@ -26,6 +26,7 @@ namespace nanoFramework.Hardware.Drivers
         private bool _interruptEnabled;
         private Thread _keypadThread;
         private KeyPressedEventArgs _lastKey = null;
+        private DateTime _lastKeyPressTime;
 
         private readonly static AutoResetEvent s_KeyActivity = new AutoResetEvent(false);
 
@@ -43,6 +44,12 @@ namespace nanoFramework.Hardware.Drivers
         public TimeSpan DebounceTime { get; set; } 
 
         /// <summary>
+        /// Delay time between keypad press event raising.
+        /// </summary>
+        /// <remarks>Default is 500 ms</remarks>
+        public short KeyDelayMiliseconds { get; set; }
+        
+        /// <summary>
         /// Creates a driver for the PCF8574  Remote 8-Bit I/O Expander for I2C Bus.
         /// </summary>
         /// <param name="address">The I2C address of the device.</param>
@@ -57,6 +64,9 @@ namespace nanoFramework.Hardware.Drivers
             byte columnCount,
             byte rowCount)
         {
+             _lastKeyPressTime = DateTime.UtcNow;
+            KeyDelayMiliseconds = 500;
+            
             DebounceTime = TimeSpan.FromMilliseconds(100);
 
             // store I2C address
@@ -139,32 +149,40 @@ namespace nanoFramework.Hardware.Drivers
         protected virtual void OnKeyPressed(KeyPressedEventArgs e)
         {
             if (_onKeyPressed == null) _onKeyPressed = new KeyPressedEventHandler(KeyPressed);
-            KeyPressed?.Invoke(e);
+           
+             //check last key press time and see if allowed to raise only if is past the KeyDelay time 
+            if (TimeSpan.FromTicks(DateTime.UtcNow.Ticks - _lastKeyPressTime.Ticks).TotalMilliseconds > KeyDelayMiliseconds)
+            {
+                _lastKeyPressTime = DateTime.UtcNow;//Update last keystroke time
+                KeyPressed?.Invoke(e);
+            }
         }
 
         #endregion
 
         #region key released event 
 
-        /// <summary>
-        /// Represents the delegate used for the <see cref="KeyRelesed"/> event.
+         /// <summary>
+        /// Represents the delegate used for the <see cref="KeyReleased"/> event.
         /// </summary>
-        public delegate void KeyRelesedEventHandler();
+        public delegate void KeyReleasedEventHandler();
 
         /// <summary>
         /// Event raised when a key is released.
         /// </summary>
-        public event KeyRelesedEventHandler KeyRelesed;
+        public event KeyReleasedEventHandler KeyReleased;
 
-        private KeyRelesedEventHandler _onKeyRelesed;
+        private KeyReleasedEventHandler _onKeyReleased;
 
         /// <summary>
-        /// Raises the <see cref="KeyRelesed"/> event.
+        /// Raises the <see cref="KeyReleased"/> event.
         /// </summary>
-        protected virtual void OnKeyRelesed()
+        protected virtual void OnKeyReleased()
         {
-            if (_onKeyRelesed == null) _onKeyRelesed = new KeyRelesedEventHandler(KeyRelesed);
-            KeyRelesed?.Invoke();
+            if (_onKeyReleased == null)
+                _onKeyReleased = new KeyReleasedEventHandler(KeyReleased);
+
+            KeyReleased?.Invoke();
         }
 
         #endregion
@@ -235,14 +253,13 @@ namespace nanoFramework.Hardware.Drivers
                 if (_lastKey != null)
                 {
                     // check for key released
-                    if (_lastKey.Column == -1 &&
-                       _lastKey.Row == -1)
+                    if (column == -1 && row == -1)
                     {
                         // clear last key
                         _lastKey = null;
 
                         // fire event
-                        OnKeyRelesed();
+                        OnKeyReleased();
                     }
                     else if (_lastKey.Column != column ||
                              _lastKey.Row != row)
