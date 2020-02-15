@@ -31,6 +31,7 @@ namespace keypad_4x4
             keypad.KeyRelesed += Keypad_KeyRelesed;
             
             //define example key map and set
+            //this mapping works if you look keypad from back side
              char[][] Keys = new char[][] {
             new char[]{'1','4','7','*'},
             new char[]{'2','5','8','0'},
