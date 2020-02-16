@@ -22,7 +22,7 @@ namespace nanoFramework.Hardware.Drivers
         public sbyte Row => _row;
         
          // <summary>
-        /// Row index of the pressed key.
+        /// Char corresponding to the pressed key.
         /// </summary>
         public char Key => _key;
 
