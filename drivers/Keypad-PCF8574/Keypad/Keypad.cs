@@ -50,6 +50,11 @@ namespace nanoFramework.Hardware.Drivers
         public short KeyDelayMiliseconds { get; set; }
         
         /// <summary>
+        /// Optional key map to provide easy key mapping.
+        /// </summary>
+        public char[][] KeyMap { get; set; }
+        
+        /// <summary>
         /// Creates a driver for the PCF8574  Remote 8-Bit I/O Expander for I2C Bus.
         /// </summary>
         /// <param name="address">The I2C address of the device.</param>
@@ -265,8 +270,11 @@ namespace nanoFramework.Hardware.Drivers
                              _lastKey.Row != row)
                     {
                         // different!!
-                        // store it
-                        _lastKey = new KeyPressedEventArgs(column, row);
+                       // store it and set key if mapping provided
+                        if (KeyMap != null)
+                            _lastKey = new KeyPressedEventArgs(column, row, KeyMap[row - 1][column - 1]);
+                        else
+                            _lastKey = new KeyPressedEventArgs(column, row, ' ');
 
                         // fire event
                         OnKeyPressed(_lastKey);
@@ -277,8 +285,11 @@ namespace nanoFramework.Hardware.Drivers
                     if (column != -1 &&
                         row != -1)
                     {
-                        // store it
-                        _lastKey = new KeyPressedEventArgs(column, row);
+                        // store it and set key if mapping provided
+                        if (KeyMap != null)
+                            _lastKey = new KeyPressedEventArgs(column, row, KeyMap[row - 1][column - 1]);
+                        else
+                            _lastKey = new KeyPressedEventArgs(column, row, ' ');
 
                         // fire event
                         OnKeyPressed(_lastKey);
