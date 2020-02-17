@@ -27,6 +27,7 @@ namespace nanoFramework.Hardware.Drivers
         private Thread _keypadThread;
         private KeyPressedEventArgs _lastKey = null;
         private DateTime _lastKeyPressTime;
+        private long _keyDelay;
 
         private readonly static AutoResetEvent s_KeyActivity = new AutoResetEvent(false);
 
@@ -36,24 +37,20 @@ namespace nanoFramework.Hardware.Drivers
         public int Address => _address;
 
         /// <summary>
-        /// Debounce time for key press.
-        /// </summary>
-        /// <remarks>
-        /// Default is 100ms.
-        /// </remarks>
-        public TimeSpan DebounceTime { get; set; } 
-
-        /// <summary>
         /// Delay time between keypad press event raising.
         /// </summary>
         /// <remarks>Default is 500 ms</remarks>
-        public short KeyDelayMiliseconds { get; set; }
-        
+        public TimeSpan KeyDelayMiliseconds
+        {
+            get => TimeSpan.FromMilliseconds(_keyDelay);
+            set => _keyDelay = value.Ticks;
+        }
+
         /// <summary>
         /// Optional key map to provide easy key mapping.
         /// </summary>
         public char[][] KeyMap { get; set; }
-        
+
         /// <summary>
         /// Creates a driver for the PCF8574  Remote 8-Bit I/O Expander for I2C Bus.
         /// </summary>
@@ -63,16 +60,15 @@ namespace nanoFramework.Hardware.Drivers
         /// <param name="rowCount">THow many rows the driver is to scan.</param>
 
         public Keypad(
-            int address, 
-            string i2cBus, 
+            int address,
+            string i2cBus,
             GpioPin interruptPin,
             byte columnCount,
             byte rowCount)
         {
-             _lastKeyPressTime = DateTime.UtcNow;
-            KeyDelayMiliseconds = 500;
-            
-            DebounceTime = TimeSpan.FromMilliseconds(100);
+            _lastKeyPressTime = DateTime.UtcNow;
+            // default to 500ms
+            KeyDelayMiliseconds = TimeSpan.FromMilliseconds(500);
 
             // store I2C address
             _address = address;
@@ -92,10 +88,8 @@ namespace nanoFramework.Hardware.Drivers
         /// </summary>
         public void EnableKeyPress()
         {
-            if(!_interruptEnabled)
+            if (!_interruptEnabled)
             {
-                _interruptPin.DebounceTimeout = DebounceTime;
-
                 _interruptPin.SetDriveMode(GpioPinDriveMode.InputPullUp);
 
                 _interruptPin.ValueChanged += KeyPressed_ValueChanged;
@@ -154,20 +148,19 @@ namespace nanoFramework.Hardware.Drivers
         protected virtual void OnKeyPressed(KeyPressedEventArgs e)
         {
             if (_onKeyPressed == null) _onKeyPressed = new KeyPressedEventHandler(KeyPressed);
-           
-             //check last key press time and see if allowed to raise only if is past the KeyDelay time 
-            if (TimeSpan.FromTicks(DateTime.UtcNow.Ticks - _lastKeyPressTime.Ticks).TotalMilliseconds > KeyDelayMiliseconds)
-            {
-                _lastKeyPressTime = DateTime.UtcNow;//Update last keystroke time
-                KeyPressed?.Invoke(e);
-            }
+
+            //Update last keystroke time stamp
+            _lastKeyPressTime = DateTime.UtcNow;
+
+            // invoke handlers
+            KeyPressed?.Invoke(e);
         }
 
         #endregion
 
         #region key released event 
 
-         /// <summary>
+        /// <summary>
         /// Represents the delegate used for the <see cref="KeyReleased"/> event.
         /// </summary>
         public delegate void KeyReleasedEventHandler();
@@ -187,6 +180,10 @@ namespace nanoFramework.Hardware.Drivers
             if (_onKeyReleased == null)
                 _onKeyReleased = new KeyReleasedEventHandler(KeyReleased);
 
+            //Update last keystroke time stamp
+            _lastKeyPressTime = DateTime.UtcNow;
+
+            // invoke handlers
             KeyReleased?.Invoke();
         }
 
@@ -194,7 +191,11 @@ namespace nanoFramework.Hardware.Drivers
 
         private void KeyPressed_ValueChanged(object sender, GpioPinValueChangedEventArgs e)
         {
-            s_KeyActivity.Set();
+            //check last key press time and see if allowed to raise only if is past the KeyDelay time 
+            if (DateTime.UtcNow.Ticks - _lastKeyPressTime.Ticks > _keyDelay)
+            {
+                s_KeyActivity.Set();
+            }
         }
 
         private void KeyPressedThread()
@@ -226,7 +227,7 @@ namespace nanoFramework.Hardware.Drivers
                 {
                     if (_expanderController.WriteReadPartial(writeBuffer, readBuffer).Status == I2cTransferStatus.FullTransfer)
                     {
-                        if(readBuffer[0] == 0)
+                        if (readBuffer[0] == 0)
                         {
                             // we have a hit, store the column index
                             column = (sbyte)index;
@@ -270,7 +271,7 @@ namespace nanoFramework.Hardware.Drivers
                              _lastKey.Row != row)
                     {
                         // different!!
-                       // store it and set key if mapping provided
+                        // store it and set key if mapping provided
                         if (KeyMap != null)
                             _lastKey = new KeyPressedEventArgs(column, row, KeyMap[row - 1][column - 1]);
                         else

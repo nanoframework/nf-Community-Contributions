@@ -28,7 +28,7 @@ namespace keypad_4x4
 
             // set event handlers
             keypad.KeyPressed += Keypad_KeyPressed;
-            keypad.KeyRelesed += Keypad_KeyRelesed;
+            keypad.KeyReleased += Keypad_KeyReleased;
             
             //define example key map and set
             //this mapping works if you look keypad from back side
@@ -47,14 +47,14 @@ namespace keypad_4x4
             Thread.Sleep(Timeout.Infinite);
         }
 
-        private static void Keypad_KeyRelesed()
+        private static void Keypad_KeyReleased()
         {
             Console.WriteLine("key released");
         }
 
         private static void Keypad_KeyPressed(KeyPressedEventArgs e)
         {
-            Console.WriteLine($"Key pressed: [{e.Row},{e.Column}]");
+            Console.WriteLine($"Key pressed: [{e.Row},{e.Column}] => {e.Key}");
         }
     }
 }
