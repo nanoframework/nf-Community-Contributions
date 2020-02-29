@@ -16,7 +16,7 @@ namespace nanoFramework.Hardware.Drivers
     /// <remarks>
     /// This driver is based on the PCF8574 IO port expander.
     /// </remarks>
-    public class Keypad
+    public class Keypad : IDisposable
     {
         private readonly int _address;
         private readonly I2cDevice _expanderController;
@@ -28,6 +28,7 @@ namespace nanoFramework.Hardware.Drivers
         private KeyPressedEventArgs _lastKey = null;
         private DateTime _lastKeyPressTime;
         private long _keyDelay;
+        private bool _disposed = false;
 
         private readonly static AutoResetEvent s_KeyActivity = new AutoResetEvent(false);
 
@@ -96,10 +97,12 @@ namespace nanoFramework.Hardware.Drivers
 
                 _keypadThread = new Thread(new ThreadStart(KeyPressedThread));
 
+                //must be placed before starting thread as it controls thread lifespan
+                 _interruptEnabled = true;
+
                 _keypadThread.Start();
 
-                _interruptEnabled = true;
-
+               
                 // write '1s' to the lower 4 bits (P0-P4) that are feeding the keypad to make them outputs
                 if (_expanderController.WritePartial(new byte[] { 0b00001111 }).Status == I2cTransferStatus.FullTransfer)
                 {
@@ -119,8 +122,6 @@ namespace nanoFramework.Hardware.Drivers
             if (_interruptEnabled)
             {
                 _interruptPin.ValueChanged -= KeyPressed_ValueChanged;
-
-                _keypadThread.Suspend();
 
                 _interruptEnabled = false;
             }
@@ -297,12 +298,29 @@ namespace nanoFramework.Hardware.Drivers
                     }
                 }
 
+                if (!_interruptEnabled)
+                    break;
+                    
                 // set all LSB back to output for the next interrupt
                 if (_expanderController.WritePartial(new byte[] { 0b00001111 }).Status != I2cTransferStatus.FullTransfer)
                 {
                     // ooopps
                 }
             }
+        }
+        
+        public void Dispose()
+        {
+            if (_disposed)
+                return;
+
+            DisableKeyPress();
+
+            _interruptPin.ValueChanged -= KeyPressed_ValueChanged;
+            _interruptPin.Dispose();
+            _expanderController.Dispose();
+
+            _disposed = true;
         }
     }
 }
