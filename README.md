@@ -29,7 +29,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  </tr>
  <tr>
   <td><a href="drivers/Keypad-PCF8574">Keypad with PCF8574</a></td>
-  <!-- <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td> -->
+  <td><a href="drivers/Sensor-DS18B20">DS18B20 driver</a></td>
   <!-- <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td> -->
   <!-- <td><a href="drivers/Simple-Web-Server">Web Server</a></td> -->
  </tr>
