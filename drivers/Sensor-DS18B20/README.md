@@ -1,5 +1,5 @@
-# nF_18B20
-NanoFramework 18B20 drive. A simplified version of nF-ESP32-One-Wire
+# Driver for DS18B20
+NanoFramework 18B20 driver. A simplified version of nF-ESP32-One-Wire
 
 Source code [Here!](https://github.com/up-streamer/nF_18B20)
 
