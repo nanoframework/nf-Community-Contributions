@@ -1,5 +1,5 @@
 ### Wiring
-![alt text](https://github.com/valoni/netmf-interpreter4x/blob/master/nanoFrameworks%20Drivers%20and%20Examples/RDM6300/NUCLEO_RDM6300.png "Nucleo F411 wiring with RDM6300")
+![alt text](https://github.com/valoni/nf-Community-Contributions/blob/master/drivers/RFID_RDM6300_UART/NUCLEO_RDM6300.png "Nucleo F411 wiring with RDM6300")
 
 ### How to use driver / Program.cs
 ```csharp
