@@ -31,8 +31,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/Keypad-PCF8574">Keypad with PCF8574</a></td>
   <td><a href="drivers/Sensor-DS18B20">DS18B20 driver</a></td>
   <td><a href="drivers/ESP32-WS2812">ESP32 WS2812 driver</a></td>
-  <!-- <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td> -->
-  <!-- <td><a href="drivers/Simple-Web-Server">Web Server</a></td> -->
+  <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
  </tr>
 </table>
 
