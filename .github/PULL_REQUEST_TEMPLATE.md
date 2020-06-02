@@ -11,6 +11,3 @@
 - [ ] I've tidy my files inside the contribution folder.
 - [ ] I've edited the repo README.md to include the mention and link to my contribution. It's under the proper section and the link is correct.
 - [ ] The code builds.
-
-<!--- It would be nice if you could sign off your contribution by replacing the name with your GitHub user name and GitHub email contact. -->
-Signed-off-by: GITHUB_USER <GITHUB_USER_EMAIL>
