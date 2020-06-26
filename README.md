@@ -39,7 +39,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 <table>
  <tr>
   <td><a href="extensions/stm32/gpiocontroller">GpioController STM32 extensions</a></td>
-  <td><a href="DEBUG2UART">DEBUG 2 UART</a></td>
+  <td><a href="utilities/Debug2Uart">Output debug messages to Uart</a></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
