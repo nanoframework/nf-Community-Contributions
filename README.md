@@ -35,6 +35,16 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  </tr>
 </table>
 
+### Libraries
+<table>
+ <tr>
+  <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa HopeRF RFM9X</a></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+ </tr>
+</table>
+
 ### Extensions
 <table>
  <tr>
