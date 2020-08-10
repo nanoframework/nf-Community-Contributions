@@ -13,10 +13,10 @@ When both interrupt pins are used, ValueChanged events are raised quicker.
 
 ## Pinout
 
-<img src="/pinout.png" width="300">
+<img src="pinout.png" width="300">
 
 ## Example Program
 
 The included example demonstrates how access the IO pins and the use of the ValueChanged event.
 
-<img src="/breadboard.png" width="800">
+<img src="breadboard.png" width="800">
