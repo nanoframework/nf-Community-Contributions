@@ -322,9 +322,9 @@ namespace Driver.MCP23017
         /// <returns></returns>
         public MCP23017Pin OpenPin(string port, int pin)
         {
-            if (pin > 15)
+            if (pin > 7)
             {
-                throw new ArgumentOutOfRangeException("Pin has to be between 0 and 17");
+                throw new ArgumentOutOfRangeException("Pin has to be between 0 and 7");
             }
             if(port != "A" && port != "B")
             {
