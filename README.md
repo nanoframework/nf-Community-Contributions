@@ -65,7 +65,6 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  </tr>
 </table>
 
-
 ## How do I add my contribution?
 
 The goal is to make it simple and with as little ceremony as possible. Nevertheless we have to keep the standard to a minimum! :wink:
@@ -87,7 +86,6 @@ We understand that you want to keep it on your own repo. If that's the case it's
 
 Or could it be that you've simply stumbled on a good piece of code and just want to share that. Then you submit a PR with a simple readme.md linking to that external resouce and a brief explanation about it.
 
-
 ## Feedback and documentation
 
 For documentation, providing feedback, issues and finding out how to contribute please refer to the [Home repo](https://github.com/nanoframework/Home).
@@ -96,19 +94,21 @@ When you need to discuss something specific about a community target start by do
 
 Join our Discord community [here](https://discord.gg/gCyBu8T).
 
-
 ## Credits
 
 The list of contributors to this project can be found at [CONTRIBUTORS](https://github.com/nanoframework/Home/blob/master/CONTRIBUTORS.md).
 
 The contributions are _owned_ by the contributor who submited it and credit is due to its creator.
 
-
 ## License
 
 Each contribution has it's own license. Please check the respective folder.
 
-
 ## Code of Conduct
-This project has adopted the code of conduct defined by the [Contributor Covenant](http://contributor-covenant.org/)
-to clarify expected behavior in our community.
+
+This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our community.
+For more information see the [.NET Foundation Code of Conduct](https://dotnetfoundation.org/code-of-conduct).
+
+### .NET Foundation
+
+This project is supported by the [.NET Foundation](https://dotnetfoundation.org).
