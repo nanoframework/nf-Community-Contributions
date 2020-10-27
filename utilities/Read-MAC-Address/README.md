@@ -1,7 +1,7 @@
 ### MAC Address
 
 
-### How to use Helpers Program.cs
+### How to use Helpers class to extract  Program.cs
 ```csharp
 public class Program
 {
@@ -13,7 +13,7 @@ public class Program
         SetupAndConnectNetwork();
 
         //We should have a valid betwork interface now
-        var mac = Utilities.GetMacId();
+        var mac = Helpers.GetMacId();
         
         Thread.Sleep(Timeout.Infinite);
     }
