@@ -1,7 +1,7 @@
 ### MAC Address
 
 
-### How to use Helpers class to extract  Program.cs
+### How to use Helpers class to extract MAC Address Program.cs
 ```csharp
 public class Program
 {
