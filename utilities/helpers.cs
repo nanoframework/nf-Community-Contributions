@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Helpers
 {
-    public static class Utilities
+    public static class Helpers
     {
         /// <summary>
         /// Return MAC Address from network interface.
