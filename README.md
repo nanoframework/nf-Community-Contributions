@@ -58,8 +58,8 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 ### Utilities
 <table>
  <tr>
-  <td><!--<a href="Utility/util1">Utility One</a>--></td>
-  <td><!--<a href="Utility/util2">Utility Two</a>--></td>
+  <td><!--<a href="Utility/Helper.cs">Utility For Converting byte array to hex string</a>--></td>
+  <td><!--<a href="Utility/Helper.cs">Utility For Extracting Network Interface MAC Address </a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
