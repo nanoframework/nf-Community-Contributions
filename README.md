@@ -58,8 +58,8 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 ### Utilities
 <table>
  <tr>
-  <td><!--<a href="Utility/util1">Utility One</a>--></td>
-  <td><!--<a href="Utility/util2">Utility Two</a>--></td>
+  <td><!--<a href="Utility/Helpers.cs">Utility to Return MAC Address from network interface.</a>--></td>
+  <td><!--<a href="Utility/Helpers.cs">Utility to Return String from byte[]</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
