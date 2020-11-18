@@ -1,3 +1,4 @@
+
 [![Discord](https://img.shields.io/discord/478725473862549535.svg)](https://discord.gg/gCyBu8T)
 
 
@@ -32,6 +33,12 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/Sensor-DS18B20">DS18B20 driver</a></td>
   <td><a href="drivers/ESP32-WS2812">ESP32 WS2812 driver</a></td>
   <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
+ </tr>
+ <tr>
+  <td><a href="drivers/IO-Expander_MCP23017">I/O Expander MCP23017</a></td>
+  <td><!--<a href="drivers/Driver 2</a>--></td>
+  <td><!--<a href="drivers/Driver 3</a>--></td>
+  <td><!--<a href="drivers/Driver 4</a>--></td>  
  </tr>
 </table>
 
