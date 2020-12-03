@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1082
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.WS2812", "WS2812\nanoFramework.WS2812.nfproj", "{BC6E7F92-E678-4FE1-AFF1-3735F64C3269}"
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "nanoFramework.WS2812", "nanoFramework.WS2812\nanoFramework.WS2812.nfproj", "{BC6E7F92-E678-4FE1-AFF1-3735F64C3269}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "WS2812.TestApp", "WS2812.TestApp\WS2812.TestApp.nfproj", "{87C775FA-DACC-40A4-81FE-F2806C8D04AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,12 @@ Global
 		{BC6E7F92-E678-4FE1-AFF1-3735F64C3269}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC6E7F92-E678-4FE1-AFF1-3735F64C3269}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC6E7F92-E678-4FE1-AFF1-3735F64C3269}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C775FA-DACC-40A4-81FE-F2806C8D04AC}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

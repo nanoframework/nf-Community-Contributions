@@ -1,8 +1,8 @@
 ﻿# ESP32 WS2812 Driver
-A C# helper class that helps you control pixels on WS2812 addressable RGB devices with the nanoFramework platform and esp32.
 
-This is a wrapper class library that uses the RMT library from this repository --> https://github.com/ololoshka2871/nanoFramework.Hardware.Esp32.RMT
+A C# helper class that helps you control pixels on WS2812 addressable RGB devices with the nanoFramework platform and ESP32.
 
-Here is the repository --> https://github.com/ivan0414/nanoFramework.WS2812
+The WS2812.TestApp that produces a rainbow effect on a M5Stack ATOM.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d94gDS0FQ4g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

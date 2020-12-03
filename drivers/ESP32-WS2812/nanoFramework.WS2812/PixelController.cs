@@ -1,4 +1,4 @@
-﻿using nanoFramework.Hardware.Esp32.RMT.Tx;
+﻿using nanoFramework.Hardware.Esp32.Rmt;
 using System;
 
 namespace WS2812
@@ -12,20 +12,21 @@ namespace WS2812
         protected const float min_pulse = 1000000.0f / (80000000 / CLOCK_DEVIDER);
 
         // default datasheet values
-        protected readonly PulseCommand onePulse =
-            new PulseCommand((ushort)(0.8 / min_pulse), true, (ushort)(0.45 / min_pulse), false);
+        protected readonly RmtCommand onePulse =
+            new RmtCommand((ushort)(0.8 / min_pulse), true, (ushort)(0.45 / min_pulse), false);
 
-        protected readonly PulseCommand zeroPulse =
-            new PulseCommand((ushort)(0.4 / min_pulse), true, (ushort)(0.85 / min_pulse), false);
+        protected readonly RmtCommand zeroPulse =
+            new RmtCommand((ushort)(0.4 / min_pulse), true, (ushort)(0.85 / min_pulse), false);
 
-        protected readonly PulseCommand RETCommand =
-            new PulseCommand((ushort)(25 / min_pulse), false, (ushort)(26 / min_pulse), false);
+        protected readonly RmtCommand RETCommand =
+            new RmtCommand((ushort)(25 / min_pulse), false, (ushort)(26 / min_pulse), false);
 
         protected Color[] pixels;
+
         //pixels as binary command ready to be send
         private byte[] binaryCommandData;
 
-        protected Transmitter transmitter;
+        protected TransmitterChannel transmitter;
 
         public bool Is4BytesPrePixel { get; set; }
 
@@ -33,14 +34,14 @@ namespace WS2812
 
         public float T0H
         {
-            get => zeroPulse.Duration1 * min_pulse;
-            set => zeroPulse.Duration1 = (ushort)(value / min_pulse);
+            get => zeroPulse.Duration0 * min_pulse;
+            set => zeroPulse.Duration0 = (ushort)(value / min_pulse);
         }
 
         public float T0L
         {
-            get => zeroPulse.Duration2 * min_pulse;
-            set => zeroPulse.Duration2 = (ushort)(value / min_pulse);
+            get => zeroPulse.Duration0 * min_pulse;
+            set => zeroPulse.Duration0 = (ushort)(value / min_pulse);
         }
 
         public float T1H
@@ -51,14 +52,14 @@ namespace WS2812
 
         public float T1L
         {
-            get => onePulse.Duration2 * min_pulse;
-            set => onePulse.Duration2 = (ushort)(value / min_pulse);
+            get => onePulse.Duration1 * min_pulse;
+            set => onePulse.Duration1 = (ushort)(value / min_pulse);
         }
         #endregion Fields
 
         public PixelController(int gpioPin, uint pixelCount, bool is4BytesPrePixel = false)
         {
-            transmitter = Transmitter.Register(gpioPin);
+            transmitter = new TransmitterChannel(gpioPin);
             ConfigureTransmitter();
             Is4BytesPrePixel = is4BytesPrePixel;
             pixels = new Color[pixelCount];
@@ -113,7 +114,7 @@ namespace WS2812
         public void UpdatePixels()
         {
             var start = DateTime.UtcNow;
-            transmitter.SendData(binaryCommandData);
+            transmitter.SendData(binaryCommandData, true);
         }
 
         /// <summary>
@@ -121,24 +122,26 @@ namespace WS2812
         /// </summary>
         public void Update()
         {
-            var commandlist = new PulseCommandList();
             for (uint pixel = 0; pixel < pixels.Length; ++pixel)
             {
-                SerialiseColor(pixels[pixel].G, commandlist);
-                SerialiseColor(pixels[pixel].R, commandlist);
-                SerialiseColor(pixels[pixel].B, commandlist);
+                SerialiseColor(pixels[pixel].G);
+                SerialiseColor(pixels[pixel].R);
+                SerialiseColor(pixels[pixel].B);
+
                 if (Is4BytesPrePixel)
-                    SerialiseColor(pixels[pixel].W, commandlist);
+                {
+                    SerialiseColor(pixels[pixel].W);
+                }
             }
-            commandlist.AddCommand(RETCommand);
-            transmitter.Send(commandlist);
+
+            transmitter.Send(true);
         }
 
-        private void SerialiseColor(byte b, PulseCommandList commandlist)
+        private void SerialiseColor(byte b)
         {
             for (int i = 0; i < 8; ++i)
             {
-                commandlist.AddCommand(((b & (1u << 7)) != 0) ? onePulse : zeroPulse);
+                transmitter.AddCommand(((b & (1u << 7)) != 0) ? onePulse : zeroPulse);
                 b <<= 1;
             }
         }
@@ -198,24 +201,22 @@ namespace WS2812
             {
                 if (bits[i] == 1)
                 {
-                    binaryCommandData[i * 4 + index] = (byte)onePulse.Duration1;
-                    binaryCommandData[(i * 4) + 2 + index] = (byte)onePulse.Duration2;
+                    binaryCommandData[i * 4 + index] = (byte)onePulse.Duration0;
+                    binaryCommandData[(i * 4) + 2 + index] = (byte)onePulse.Duration1;
                 }
                 else
                 {
-                    binaryCommandData[i * 4 + index] = (byte)zeroPulse.Duration1;
-                    binaryCommandData[(i * 4) + 2 + index] = (byte)zeroPulse.Duration2;
+                    binaryCommandData[i * 4 + index] = (byte)zeroPulse.Duration0;
+                    binaryCommandData[(i * 4) + 2 + index] = (byte)zeroPulse.Duration1;
                 }
             }
         }
 
         private void ConfigureTransmitter()
         {
-            transmitter.CarierEnabled = false;
+            transmitter.CarrierEnabled = false;
             transmitter.ClockDivider = CLOCK_DEVIDER;
-            transmitter.isSource80MHz = true;
-            transmitter.TransmitIdleLevel = false;
-            transmitter.IsTransmitIdleEnabled = true;
+            transmitter.IdleLevel = false;
         }
 
         private void Dispose(bool disposing)
