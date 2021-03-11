@@ -8,7 +8,7 @@ See https://wiki.keyestudio.com/KS0387_keyestudio_YX5200-24SS_MP3_Module for a g
 
 Example code:<br/>
 ```
-		const int FOLDER_NUM = 1;
+	const int FOLDER_NUM = 1;
         const int FILE_NUM = 1;
         static SerialDevice serialDevice;
         static YX5300_NF mp3Player;
