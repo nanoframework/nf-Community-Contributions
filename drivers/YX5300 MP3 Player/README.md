@@ -2,7 +2,7 @@
 
 Use this driver to control the Keyestudio YX5200-24SS MP3/Jaycar XC3748 Music Player Module
 
-This MP3 module is a MP3/WAV/WMA music player. It uses YX5200/YX5300 at its core and it plays files fom an integrated SD card reader.
+This MP3 module is a MP3/WAV/WMA music player. It uses YX5200/YX5300 at its core and it plays files from an integrated SD card reader.
 
 See https://wiki.keyestudio.com/KS0387_keyestudio_YX5200-24SS_MP3_Module for a good oversight.
 
