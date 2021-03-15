@@ -1,4 +1,4 @@
-# XY5300 driver
+# YX5200 driver
 
 Use this driver to control the Keyestudio YX5200-24SS MP3/Jaycar XC3748 Music Player Module
 
