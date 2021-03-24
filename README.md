@@ -38,7 +38,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/IO-Expander_MCP23017">I/O Expander MCP23017</a></td>
   <td><a href="drivers/RTC_DS3231">RTC_DS3231</a></td>
   <td><a href="drivers/YX5300 MP3 Player">YX5300 MP3 Player</a></td>
-  <td><!--<a href="drivers/Driver 4"></a>--></td>  
+  <td><a href="drivers/BME280">BME280 Sensor Driver</a></td>  
  </tr>
 </table>
 
