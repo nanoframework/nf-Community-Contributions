@@ -46,12 +46,12 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 <table>
  <tr>
   <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa HopeRF RFM9X</a></td>
-  <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa RAK811</a></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa RAK811</a></td> 
+  <td><a href="libraries/ThingsBoardDotNet">Library to work with ThingsBoard IoT Platform</a></td> 
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
 <tr>
-  <td><a href="libraries/ThingsBoardDotNet">Library to work with ThingsBoard IoT Platform</a></td>
+   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
