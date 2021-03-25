@@ -38,7 +38,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/IO-Expander_MCP23017">I/O Expander MCP23017</a></td>
   <td><a href="drivers/RTC_DS3231">RTC_DS3231</a></td>
   <td><a href="drivers/YX5300 MP3 Player">YX5300 MP3 Player</a></td>
-  <td><!--<a href="drivers/Driver 4"></a>--></td>  
+  <td><a href="drivers/BME280">BME280 Sensor Driver</a></td>  
  </tr>
 </table>
 
@@ -47,6 +47,12 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  <tr>
   <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa HopeRF RFM9X</a></td>
   <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa RAK811</a></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+ </tr>
+<tr>
+  <td><a href="libraries/ThingsBoardDotNet">Library to work with ThingsBoard IoT Platform</a></td>
+  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
