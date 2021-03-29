@@ -41,7 +41,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/BME280">BME280 Sensor Driver</a></td>  
  </tr>
   <tr>
-  <td><a href="drivers/Stepper motor drivers/UML2003">UML2003 stepper motor driver</a></td>
+  <td><a href="drivers/Stepper motor drivers/ULN2003">ULN2003 stepper motor driver</a></td>
   <td><a href="drivers/Stepper motor drivers/AccelStepper">AccelStepper stepper motor driver</a></td>
   <td><a href=""></a></td>
   <td><a href=""</a></td>  
