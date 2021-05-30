@@ -52,7 +52,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
  </tr>
 <tr>
   <td><a href="libraries/ThingsBoardDotNet">Library to work with ThingsBoard IoT Platform</a></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><a href="libraries/nanoFramework.CoAP">Library for building CoAP enabled applications.</a></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
