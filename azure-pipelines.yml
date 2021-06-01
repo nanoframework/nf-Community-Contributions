@@ -71,7 +71,7 @@ jobs:
 
   - checkout: self
 
-  - task: NuGetToolInstaller@0
+  - template: azure-pipelines-templates/install-nuget.yml@templates
 
   - task: NuGetCommand@2
     inputs:
