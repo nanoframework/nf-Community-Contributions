@@ -10,20 +10,23 @@
 
 This repository contains contributions provided and maintained by **nanoFramework** community members.
 
-These contributions are **NOT** supported by the **nanoFramework** team and any issues must be communicated with the contributor that _owns_ it.
+These contributions are **NOT** supported by the **nanoFramework** team and any issues must be communicated with the contributor that _owns_ it. This site mainly contains links on community member self maintained code.
+
+You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT.Device repository](https://github.com/nanoFramework/nanoFramework.IoT.Device).
 
 ## Contributions by category
 
 ### Drivers
+
 <table>
  <tr>
   <td><a href="drivers/OLED-SS1306-display">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256">24LC256 EEPROM</a></td>
-  <td><a href="drivers/EEPROM-AT24C128C">AT24C128C EEPROM</a></td>
+  <td><a href="drivers/YX5300 MP3 Player">YX5300 MP3 Player</a></td>
   <td><a href="drivers/WiFi-ESP8266">ESP8266 serial WiFi</a></td>
  </tr>
  <tr>
-  <td><a href="drivers/Shift-Register-74HC595">74HC595 Shift Register</a></td>
+  <td></td>
   <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td>
   <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td>
   <td><a href="drivers/Simple-Web-Server">Web Server</a></td>
@@ -35,21 +38,15 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
   <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
  </tr>
  <tr>
-  <td><a href="drivers/IO-Expander_MCP23017">I/O Expander MCP23017</a></td>     
-  <td><a href="drivers/RTC_DS3231">RTC_DS3231</a></td>
-  <td><a href="drivers/YX5300 MP3 Player">YX5300 MP3 Player</a></td>
-  <td><a href="drivers/BME280">BME280 Sensor Driver</a></td>
- </tr>
-  <tr>
-  <td><a href="drivers/Stepper motor drivers/ULN2003">ULN2003 stepper motor driver</a></td>
+  <td></td>
   <td><a href="drivers/Stepper motor drivers/AccelStepper">AccelStepper stepper motor driver</a></td>
   <td><a href="drivers/RFID-MFRC522-SPI">RFID MFRC522 SPI driver</a></td>
-  <td><a href=""></a></td>
-  <td><a href=""</a></td>  
+  <td></td>
  </tr>
 </table>
 
 ### Libraries
+
 <table>
  <tr>
   <td><a href="libraries/LoRa-RFM9X">Library for controlling a LoRa HopeRF RFM9X</a></td>
@@ -60,6 +57,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 </table>
 
 ### Extensions
+
 <table>
  <tr>
   <td><a href="extensions/stm32/gpiocontroller">GpioController STM32 extensions</a></td>
@@ -70,6 +68,7 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 </table>
 
 ### Utilities
+
 <table>
  <tr>
   <td><a href="utilities/Read-MAC-Address/Helpers.cs">Utility to Return MAC Address from network interface.</a></td>
@@ -85,6 +84,7 @@ The goal is to make it simple and with as little ceremony as possible. Neverthel
 If you have a contribution, fork this repo and submit a PR. One of the core team members will give it a quick look and merge it.
 
 ### Checklist for submitting a contribution
+
 - [ ] Find a section that best fits your contribution and add it there.
 - [ ] Give it good naming. Simple, descriptive and concise.
 - [ ] Add a readme.md following the provided template (TBD). 
@@ -94,11 +94,9 @@ If you have a contribution, fork this repo and submit a PR. One of the core team
 
 ### I don't want to store my code here
 
-That's fine. 
+That's fine and this place is not to store your code! If you want to store your code, please contribute to [nanoFramework.IoT.Device repository](https://github.com/nanoFramework/nanoFramework.IoT.Device).
 
-We understand that you want to keep it on your own repo. If that's the case it's OK to add it as Git sub-module that will link to your repo.
-
-Or could it be that you've simply stumbled on a good piece of code and just want to share that. Then you submit a PR with a simple readme.md linking to that external resouce and a brief explanation about it.
+We understand that you want to keep it on your own repo. If that's the case it's OK to add a link to your repo from a nice README.md.
 
 ## Feedback and documentation
 
