@@ -22,11 +22,11 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
  <tr>
   <td><a href="drivers/OLED-SS1306-display">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256">24LC256 EEPROM</a></td>
-  <td><a href="drivers/YX5300 MP3 Player">YX5300 MP3 Player</a></td>
+  <td><a href="drivers/RFID-MFRC522-SPI">RFID MFRC522 SPI driver</a></td>
   <td><a href="drivers/WiFi-ESP8266">ESP8266 serial WiFi</a></td>
  </tr>
  <tr>
-  <td></td>
+  <td><a href="drivers/Stepper motor drivers/AccelStepper">AccelStepper stepper motor driver</a></td>
   <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td>
   <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td>
   <td><a href="drivers/Simple-Web-Server">Web Server</a></td>
@@ -36,12 +36,6 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
   <td><a href="drivers/Sensor-DS18B20">DS18B20 driver</a></td>
   <td><a href="drivers/ESP32-WS2812">ESP32 WS2812 driver</a></td>
   <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
- </tr>
- <tr>
-  <td></td>
-  <td><a href="drivers/Stepper motor drivers/AccelStepper">AccelStepper stepper motor driver</a></td>
-  <td><a href="drivers/RFID-MFRC522-SPI">RFID MFRC522 SPI driver</a></td>
-  <td></td>
  </tr>
 </table>
 
