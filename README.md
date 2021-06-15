@@ -60,6 +60,8 @@ These contributions are **NOT** supported by the **nanoFramework** team and any 
 <tr>
    <td><a href="libraries/nanoFramework.OpenThread">Library to work with the 6lowpan Thread network</a></td>
    <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+    <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+    <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
 </table>
 
