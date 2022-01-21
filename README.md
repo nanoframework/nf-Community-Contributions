@@ -37,6 +37,9 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
   <td><a href="drivers/ESP32-WS2812">ESP32 WS2812 driver</a></td>
   <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
  </tr>
+ <tr>
+  <td><a href="drivers/Blues-Wireless">Blues Wireless Notecard</a></td>  
+ </tr>
 </table>
 
 ### Libraries
