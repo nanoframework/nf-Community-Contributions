@@ -13,4 +13,4 @@ The Notecard combines prepaid cellular connectivity and "off-the-internet" commu
 ## .NET nanoFramework Driver Libraries
 
 The folloiwing repository contains libraries for working with [Blues Wireless Notecard](https://blues.io) and [.NET nanoFramework](https://www.nanoFramework.net/).
-* [Notecard Driver](https://github.com/bytewizer/blueswireless/tree/develop/src/Bytewizer.NanoCLR.Drivers.Blues.Notecar)
+* [Notecard Driver](https://github.com/bytewizer/blueswireless/tree/develop/src/Bytewizer.NanoCLR.Drivers.Blues.Notecard)
