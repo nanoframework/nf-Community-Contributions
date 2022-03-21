@@ -12,7 +12,7 @@ This sample also demonstrates BufferBleSpp's use in a Xamarin Forms mobile clien
 
 The nanoFramework project is provided as a zipped file [BufferedBleSppNanoF.zip].
 
-The Xamarin Forms project shared project source files are also provided. See the instructions below for the setup activities.
+The Xamarin Forms project is provided as a zipped file [BufferedBleSppXam.zip].
 
 There are two objects, both called BufferedBleSpp, one for each platform:
 
