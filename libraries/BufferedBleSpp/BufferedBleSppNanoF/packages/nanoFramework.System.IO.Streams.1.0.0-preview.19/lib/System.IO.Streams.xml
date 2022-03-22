@@ -1,0 +1,897 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.IO.Streams</name>
+    </assembly>
+    <members>
+        <member name="T:System.IO.MemoryStream">
+            <summary>
+            Creates a stream whose backing store is memory.
+            </summary>
+        </member>
+        <member name="M:System.IO.MemoryStream.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.IO.MemoryStream"/> class with an expandable capacity initialized to zero.
+            </summary>
+            <remarks>
+            <para>
+            The <see cref="P:System.IO.MemoryStream.CanRead"/>, <see cref="P:System.IO.MemoryStream.CanSeek"/>, and <see cref="P:System.IO.MemoryStream.CanWrite"/> properties are all set to <see langword="true"/>.
+            </para>
+            <para>
+            The capacity of the current stream automatically increases when you use the <see cref="M:System.IO.MemoryStream.SetLength(System.Int64)"/> method to set the length to a value larger than the capacity of the current stream.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.MemoryStream.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new non-resizable instance of the <see cref="T:System.IO.MemoryStream"/> class based on the specified byte array.
+            </summary>
+            <param name="buffer">The array of unsigned bytes from which to create the current stream.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="buffer"/> is <see langword="null"/>.</exception>
+            <remarks>
+            <para>
+            The <see cref="P:System.IO.MemoryStream.CanRead"/>, <see cref="P:System.IO.MemoryStream.CanSeek"/>, and <see cref="P:System.IO.MemoryStream.CanWrite"/> properties are all set to <see langword="true"/>.
+            </para>
+            <para>
+            The capacity of the current stream automatically increases when you use the <see cref="M:System.IO.MemoryStream.SetLength(System.Int64)"/> method to set the length to a value larger than the capacity of the current stream.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:System.IO.MemoryStream.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+            <value>/// <see langword="true"/> if the stream is open./// </value>
+            <remarks>
+            <para>
+            If a class derived from <see cref="T:System.IO.Stream"/> does not support reading, calls to the <see cref="M:System.IO.MemoryStream.Read(System.SpanByte)"/> and <see cref="M:System.IO.MemoryStream.ReadByte"/> methods throw a <see cref="T:System.NotSupportedException"/>.
+            </para>
+            <para>
+            If the stream is closed, this property returns <see langword="false"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:System.IO.MemoryStream.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+            <value><see langword="true"/> if the stream is open.</value>
+            <remarks>
+            <para>
+            If a class derived from <see cref="T:System.IO.Stream"/> does not support reading, calls to the <see cref="P:System.IO.MemoryStream.Length"/>, <see cref="M:System.IO.MemoryStream.SetLength(System.Int64)"/>, <see cref="P:System.IO.MemoryStream.Position"/> and <see cref="M:System.IO.MemoryStream.Seek(System.Int64,System.IO.SeekOrigin)"/> throw a <see cref="T:System.NotSupportedException"/>.
+            </para>
+            <para>
+            If the stream is closed, this property returns <see langword="false"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:System.IO.MemoryStream.CanWrite">
+            <summary>
+            Gets a value indicating whether the current stream supports writing.
+            </summary>
+            <value><see langword="true"/> if the stream supports writing; otherwise, <see langword="false"/>.</value>
+            <remarks>
+            <para>
+            If a class derived from <see cref="T:System.IO.Stream"/> does not support reading, calls to the <see cref="M:System.IO.MemoryStream.SetLength(System.Int64)"/> and <see cref="M:System.IO.MemoryStream.Write(System.Byte[],System.Int32,System.Int32)"/> or <see cref="M:System.IO.MemoryStream.WriteByte(System.Byte)"/> methods throw a <see cref="T:System.NotSupportedException"/>.
+            </para>
+            <para>
+            If the stream is closed, this property returns <see langword="false"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.MemoryStream.Dispose(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.Flush">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.GetBuffer">
+            <summary>
+            Returns the array of unsigned bytes from which this stream was created.
+            </summary>
+            <returns>The byte array from which this stream was created, or the underlying array if a byte array was not provided to the <see cref="T:System.IO.MemoryStream"/> constructor during construction of the current instance.</returns>
+            <remarks>
+            <para>
+            Note that the buffer contains allocated bytes which might be unused. For example, if the string "test" is written into the <see cref="T:System.IO.MemoryStream"/> object, the length of the buffer returned from <see cref="M:System.IO.MemoryStream.GetBuffer"/> is 256, not 4, with 252 bytes unused. To obtain only the data in the buffer, use the <see cref="M:System.IO.MemoryStream.ToArray"/> method; however, <see cref="M:System.IO.MemoryStream.ToArray"/> creates a copy of the data in memory.
+            </para>
+            <para>
+            The buffer can also be <see langword="null"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:System.IO.MemoryStream.Length">
+            <inheritdoc/>
+        </member>
+        <member name="P:System.IO.MemoryStream.Position">
+             <inheritdoc/>
+            <exception cref="T:System.IO.IOException">Can't adjust position out of the buffer size for fixed size buffer</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Position can't be negative or higher than the stream allocated size.</exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.Read(System.SpanByte)">
+            <inheritdoc/>
+            <exception cref="T:System.ObjectDisposedException">The current stream instance is closed.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> or <paramref name="count"/> is negative.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="offset"/> subtracted from the buffer length is less than <paramref name="count"/>.</exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+            <exception cref="T:System.ObjectDisposedException">The current stream instance is closed.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="buffer"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> or <paramref name="count"/> is negative.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="offset"/> subtracted from the buffer length is less than <paramref name="count"/>.</exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.ReadByte">
+            <inheritdoc/>
+            <exception cref="T:System.ObjectDisposedException">The current stream instance is closed.</exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <inheritdoc/>
+            <exception cref="T:System.ObjectDisposedException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="offset"/> is greater than <see cref="F:System.Int32.MaxValue"/>.</exception>
+            <exception cref="T:System.IO.IOException">Seeking is attempted before the beginning of the stream.</exception>
+            <exception cref="T:System.ArgumentException">
+            There is an invalid <see cref="T:System.IO.SeekOrigin"/>.
+            -or-
+            <paramref name="offset"/> caused an arithmetic overflow.
+            </exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.SetLength(System.Int64)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.ToArray">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.WriteByte(System.Byte)">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.MemoryStream.WriteTo(System.IO.Stream)">
+            <summary>
+            Writes this MemoryStream to another stream.
+            </summary>
+            <param name="stream">Stream to write into.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="stream"/> is <see langword="null"/>.</exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.EnsureOpen">
+            <summary>
+            Check that stream is open.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException"></exception>
+        </member>
+        <member name="M:System.IO.MemoryStream.EnsureCapacity(System.Int32)">
+            <summary>
+            Verifies that there is enough capacity in the stream.
+            </summary>
+            <param name="value">Value for the new capacity.</param>
+            <returns><see langword="true"/> if allocation for a new array was successful. <see langword="false"/> otherwise.</returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="T:System.IO.SeekOrigin">
+            <summary>
+            Specifies the position in a stream to use for seeking.
+            </summary>
+            <remarks>These constants match Win32's FILE_BEGIN, FILE_CURRENT, and FILE_END</remarks>
+        </member>
+        <member name="F:System.IO.SeekOrigin.Begin">
+            <summary>
+            Specifies the beginning of a stream.
+            </summary>
+        </member>
+        <member name="F:System.IO.SeekOrigin.Current">
+            <summary>
+            Specifies the current position within a stream.
+            </summary>
+        </member>
+        <member name="F:System.IO.SeekOrigin.End">
+            <summary>
+            Specifies the end of a stream.
+            </summary>
+        </member>
+        <member name="T:System.IO.Stream">
+            <summary>
+            Provides a generic view of a sequence of bytes. This is an abstract class.
+            </summary>
+        </member>
+        <member name="P:System.IO.Stream.CanRead">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports reading.
+            </summary>
+            <value>
+            true if the stream supports reading; otherwise, false.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.CanSeek">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports seeking.
+            </summary>
+            <value>
+            true if the stream supports seeking; otherwise, false.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.CanTimeout">
+            <summary>
+            Gets a value that determines whether the current stream can time out.
+            </summary>
+            <value>
+            A value that determines whether the current stream can time out.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.CanWrite">
+            <summary>
+            When overridden in a derived class, gets a value indicating whether the current stream supports writing.
+            </summary>
+            <value>
+            true if the stream supports writing; otherwise, false.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.Length">
+            <summary>
+            When overridden in a derived class, gets the length in bytes of the stream.
+            </summary>
+            <value>
+            A long value representing the length of the stream in bytes.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.Position">
+            <summary>
+            When overridden in a derived class, gets or sets the position within the current stream.
+            </summary>
+            <value>
+            The current position within the stream.
+            </value>
+        </member>
+        <member name="P:System.IO.Stream.ReadTimeout">
+            <summary>
+            Gets or sets a value, in milliseconds, that determines how long the stream will attempt to read before timing out.
+            </summary>
+            <value>
+            A value, in milliseconds, that determines how long the stream will attempt to read before timing out.
+            </value>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="P:System.IO.Stream.WriteTimeout">
+            <summary>
+            Gets or sets a value, in milliseconds, that determines how long the stream will attempt to write before timing out.
+            </summary>
+            <value>
+            A value, in milliseconds, that determines how long the stream will attempt to write before timing out.
+            </value>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:System.IO.Stream.Close">
+            <summary>
+            Closes the current stream and releases any resources (such as sockets and file handles) associated with the current stream. 
+            Instead of calling this method, ensure that the stream is properly disposed.
+            </summary>
+            <remarks>
+            Stream used to require that all cleanup logic went into Close(),
+            which was thought up before we invented IDisposable.  However, we
+            need to follow the IDisposable pattern so that users can write
+            sensible subclasses without needing to inspect all their base
+            classes, and without worrying about version brittleness, from a
+            base class switching to the Dispose pattern.  We're moving
+            Stream to the Dispose(bool) pattern - that's where all subclasses
+            should put their cleanup starting in V2.
+            </remarks>
+        </member>
+        <member name="M:System.IO.Stream.CopyTo(System.IO.Stream)">
+            <summary>
+            Reads the bytes from the current stream and writes them to another stream.
+            </summary>
+            <param name="destination">The stream to which the contents of the current stream will be copied.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="destination"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.NotSupportedException">
+            <para>
+            The current stream does not support reading.
+            </para>
+            <para>
+            -or-
+            </para>
+            <para>
+            <paramref name="destination"/> does not support writing.
+            </para>
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">Either the current stream or <paramref name="destination"/> were closed before the <see cref="M:System.IO.Stream.CopyTo(System.IO.Stream)"/> method was called.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error occurred.</exception>
+            <remarks>
+            Copying begins at the current position in the current stream, and does not reset the position of the destination stream after the copy operation is complete.
+            </remarks>
+        </member>
+        <member name="M:System.IO.Stream.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:System.IO.Stream.Finalize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:System.IO.Stream.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the Stream and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.IO.Stream.Flush">
+            <summary>
+            When overridden in a derived class, clears all buffers for this stream and causes any buffered data to be written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:System.IO.Stream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            When overridden in a derived class, sets the position within the current stream.
+            </summary>
+            <param name="offset">A byte offset relative to the origin parameter.</param>
+            <param name="origin">A value of type SeekOrigin indicating the reference point used to obtain the new position.</param>
+            <returns>The new position within the current stream.</returns>
+        </member>
+        <member name="M:System.IO.Stream.SetLength(System.Int64)">
+            <summary>
+            When overridden in a derived class, sets the length of the current stream.
+            </summary>
+            <param name="value">The desired length of the current stream in bytes.</param>
+        </member>
+        <member name="M:System.IO.Stream.Read(System.SpanByte)">
+            <summary>
+            When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">A region of memory. When this method returns, the contents of this region are replaced by the bytes read from the current source.</param>
+            <returns>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:System.IO.Stream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
+            </summary>
+            <param name="buffer">An array of bytes. When this method returns, the buffer contains the specified byte array with the values between offset and (offset + count - 1) replaced by the bytes read from the current source.</param>
+            <param name="offset">The zero-based byte offset in buffer at which to begin storing the data read from the current stream.</param>
+            <param name="count">The maximum number of bytes to be read from the current stream.</param>
+            <returns>The total number of bytes read into the buffer. This can be less than the number of bytes requested if that many bytes are not currently available, or zero (0) if the end of the stream has been reached.</returns>
+        </member>
+        <member name="M:System.IO.Stream.ReadByte">
+            <summary>
+            Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
+            </summary>
+            <returns>The unsigned byte cast to an Int32, or -1 if at the end of the stream.</returns>
+        </member>
+        <member name="M:System.IO.Stream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, writes a sequence of bytes to the current stream and advances the current position within this stream by the number of bytes written.
+            </summary>
+            <param name="buffer">An array of bytes. This method copies count bytes from buffer to the current stream.</param>
+            <param name="offset">The zero-based byte offset in buffer at which to begin copying bytes to the current stream.</param>
+            <param name="count">The number of bytes to be written to the current stream.</param>
+        </member>
+        <member name="M:System.IO.Stream.WriteByte(System.Byte)">
+            <summary>
+            Writes a byte to the current position in the stream and advances the position within the stream by one byte.
+            </summary>
+            <param name="value">The byte to write to the stream.</param>
+        </member>
+        <member name="T:System.IO.StreamReader">
+            <summary>
+            Implements a <see cref="T:System.IO.TextReader"/> that reads characters from a byte stream in a particular encoding.
+            </summary>
+        </member>
+        <member name="P:System.IO.StreamReader.BaseStream">
+            <summary>
+            Returns the underlying stream.
+            </summary>
+            <value>The underlying stream.</value>
+            <remarks>
+            You use this property to access the underlying stream. The StreamReader class buffers input from the underlying stream when you call one of the Read methods. If you manipulate the position of the underlying stream after reading data into the buffer, the position of the underlying stream might not match the position of the internal buffer. To reset the internal buffer, call the DiscardBufferedData method; however, this method slows performance and should be called only when absolutely necessary. The StreamReader constructors that have the detectEncodingFromByteOrderMarks parameter can change the encoding the first time you read from the StreamReader object.
+            </remarks>
+        </member>
+        <member name="P:System.IO.StreamReader.CurrentEncoding">
+            <summary>
+            Gets the current character encoding that the current <see cref="T:System.IO.StreamReader"/> object is using.
+            </summary>
+            <value>The current character encoding used by the current reader. The value can be different after the first call to any <see cref="M:System.IO.StreamReader.Read"/> method of <see cref="T:System.IO.StreamReader"/>, since encoding autodetection is not done until the first call to a <see cref="M:System.IO.StreamReader.Read"/> method.</value>
+        </member>
+        <member name="P:System.IO.StreamReader.EndOfStream">
+            <summary>
+            Gets a value that indicates whether the current stream position is at the end of the stream.
+            </summary>
+            <value><see langword="true"/> if the current stream position is at the end of the stream; otherwise <see langword="false"/>.</value>
+        </member>
+        <member name="M:System.IO.StreamReader.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.IO.StreamReader"/> class for the specified stream.
+            </summary>
+            <param name="stream">The stream to be read.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="stream"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="stream"/> does not support reading.</exception>
+        </member>
+        <member name="M:System.IO.StreamReader.Close">
+            <summary>
+            Closes the <see cref="T:System.IO.StreamReader"/> object and the underlying stream, and releases any system resources associated with the reader.
+            </summary>
+            <remarks>
+            This method overrides the <see cref="M:System.IO.TextReader.Close"/> method.
+            This implementation of <see cref="M:System.IO.StreamReader.Close"/> calls the <see cref="M:System.IO.StreamReader.Dispose(System.Boolean)"/> method, passing a <see langword="true"/> value.
+            Following a call to <see cref="M:System.IO.StreamReader.Close"/>, any operations on the reader might raise exceptions.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamReader.Dispose(System.Boolean)">
+            <summary>
+            Closes the underlying stream, releases the unmanaged resources used by the <see cref="T:System.IO.StreamReader"/>, and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+            <remarks>
+            This method is called by the public <see cref="M:System.IO.StreamReader.Dispose(System.Boolean)"/> method and the Finalize method. Dispose invokes the protected <see cref="M:System.IO.StreamReader.Dispose(System.Boolean)"/> method with the disposing parameter set to <see langword="true"/>. Finalize invokes <see cref="M:System.IO.StreamReader.Dispose(System.Boolean)"/> with disposing set to <see langword="false"/>.
+            When the disposing parameter is <see langword="true"/>, this method releases all resources held by any managed objects that the StreamReader object references.This method invokes the <see cref="M:System.IO.StreamReader.Dispose(System.Boolean)"/> method of each referenced object.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamReader.Peek">
+            <summary>
+            Returns the next available character but does not consume it.
+            </summary>
+            <returns>An integer representing the next character to be read, or -1 if there are no characters to be read or if the stream does not support seeking.</returns>
+            <exception cref="T:System.IO.IOException">An I/O error occurs.</exception>
+            <remarks>
+            The <see cref="M:System.IO.StreamReader.Peek"/> method returns an integer value in order to determine whether the end of the file, or another error has occurred. This allows a user to first check if the returned value is -1 before casting it to a <see cref="T:System.Char"/> type.
+            This method overrides <see cref="M:System.IO.TextReader.Peek"/>.
+            The current position of the <see cref="T:System.IO.StreamReader"/> object is not changed by <see cref="M:System.IO.StreamReader.Peek"/>.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamReader.Read">
+            <summary>
+            Reads the next character from the input stream and advances the character position by one character.
+            </summary>
+            <returns>The next character from the input stream represented as an <see cref="T:System.Int32"/> object, or -1 if no more characters are available.</returns>
+            <remarks>
+            This method overrides <see cref="M:System.IO.TextReader.Read"/>.
+            This method returns an integer so that it can return -1 if the end of the stream has been reached. If you manipulate the position of the underlying stream after reading data into the buffer, the position of the underlying stream might not match the position of the internal buffer.To reset the internal buffer, call the DiscardBufferedData method; however, this method slows performance and should be called only when absolutely necessary.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamReader.Read(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reads a specified maximum of characters from the current stream into a buffer, beginning at the specified index.
+            </summary>
+            <param name="buffer">When this method returns, contains the specified character array with the values between <paramref name="index"/> and (<paramref name="index"/> + <paramref name="count"/> - 1) replaced by the characters read from the current source.</param>
+            <param name="index">The index of <paramref name="buffer"/> at which to begin writing.</param>
+            <param name="count">The maximum number of characters to read.</param>
+            <returns>
+            The number of characters that have been read, or 0 if at the end of the stream and no data was read. The number will be less than or equal to the <paramref name="count"/> parameter, depending on whether the data is available within the stream.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="buffer"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> or <paramref name="count"/> is negative.</exception>
+            <exception cref="T:System.ArgumentException">The buffer length minus <paramref name="index"/> is less than <paramref name="count"/>.</exception>
+            <exception cref="T:System.ObjectDisposedException">An I/O error occurs, such as the stream is closed.</exception>
+            <remarks>
+            This method overrides TextReader.Read.
+            This method returns an integer so that it can return 0 if the end of the stream has been reached.
+            When using the Read method, it is more efficient to use a buffer that is the same size as the internal buffer of the stream, where the internal buffer is set to your desired block size, and to always read less than the block size.If the size of the internal buffer was unspecified when the stream was constructed, its default size is 4 kilobytes(4096 bytes). If you manipulate the position of the underlying stream after reading data into the buffer, the position of the underlying stream might not match the position of the internal buffer.To reset the internal buffer, call the DiscardBufferedData method; however, this method slows performance and should be called only when absolutely necessary.
+            This method returns after either the number of characters specified by the count parameter are read, or the end of the file is reached. <see cref="M:System.IO.TextReader.ReadBlock(System.Char[],System.Int32,System.Int32)"/> is a blocking version of <see cref="M:System.IO.StreamReader.Read(System.Char[],System.Int32,System.Int32)"/>.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamReader.ReadLine">
+            <summary>
+            Reads a line of characters from the current stream and returns the data as a string.
+            </summary>
+            <returns>The next line from the input stream, or <see langword="null"/> if the end of the input stream is reached.</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:System.IO.StreamReader.ReadToEnd">
+            <summary>
+            Reads all characters from the current position to the end of the stream.
+            </summary>
+            <returns>The rest of the stream as a string, from the current position to the end. If the current position is at the end of the stream, returns an empty string ("").</returns>
+            <remarks>
+            This method overrides TextReader.ReadToEnd.
+            ReadToEnd works best when you need to read all the input from the current position to the end of the stream.If more control is needed over how many characters are read from the stream, use the Read(Char[], Int32, Int32) method overload, which generally results in better performance.
+            ReadToEnd assumes that the stream knows when it has reached an end.For interactive protocols in which the server sends data only when you ask for it and does not close the connection, ReadToEnd might block indefinitely because it does not reach an end, and should be avoided.
+            Note that when using the Read method, it is more efficient to use a buffer that is the same size as the internal buffer of the stream.If the size of the buffer was unspecified when the stream was constructed, its default size is 4 kilobytes (4096 bytes).
+            If the current method throws an OutOfMemoryException, the reader's position in the underlying Stream object is advanced by the number of characters the method was able to read, but the characters already read into the internal ReadLine buffer are discarded. If you manipulate the position of the underlying stream after reading data into the buffer, the position of the underlying stream might not match the position of the internal buffer. To reset the internal buffer, call the DiscardBufferedData method; however, this method slows performance and should be called only when absolutely necessary.
+            </remarks>
+        </member>
+        <member name="T:System.IO.StreamWriter">
+            <summary>
+            Implements a <see cref="T:System.IO.TextWriter"/> for writing characters to a stream in a particular encoding.
+            </summary>
+        </member>
+        <member name="P:System.IO.StreamWriter.BaseStream">
+            <summary>
+            Gets the underlying stream that interfaces with a backing store.
+            </summary>
+            <value>The stream this <see cref="T:System.IO.StreamWriter"/> is writing to.</value>
+        </member>
+        <member name="P:System.IO.StreamWriter.Encoding">
+            <summary>
+            Gets the <see cref="P:System.IO.StreamWriter.Encoding"/> in which the output is written.
+            </summary>
+            <value>The Encoding specified in the constructor for the current instance, or <see cref="T:System.Text.UTF8Encoding"/> if an encoding was not specified.</value>
+        </member>
+        <member name="M:System.IO.StreamWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.IO.StreamWriter"/> class for the specified stream by using UTF-8 encoding and the default buffer size.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="stream"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="stream"/> is not writable.</exception>
+        </member>
+        <member name="M:System.IO.StreamWriter.Close">
+            <summary>
+            Closes the current <see cref="T:System.IO.StreamWriter"/> object and the underlying stream.
+            </summary>
+            <remarks>
+            This method overrides <see cref="M:System.IO.Stream.Close"/>.
+            This implementation of <see cref="M:System.IO.StreamWriter.Close"/> calls the <see cref="M:System.IO.StreamWriter.Dispose(System.Boolean)"/> method passing a true value.
+            You must call <see cref="M:System.IO.StreamWriter.Close"/> to ensure that all data is correctly written out to the underlying stream.Following a call to <see cref="M:System.IO.StreamWriter.Close"/>, any operations on the <see cref="T:System.IO.StreamWriter"/> might raise exceptions. If there is insufficient space on the disk, calling <see cref="M:System.IO.StreamWriter.Close"/> will raise an exception.
+            Flushing the stream will not flush its underlying encoder unless you explicitly call <see cref="M:System.IO.StreamWriter.Flush"/> or <see cref="M:System.IO.StreamWriter.Close"/>.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamWriter.Dispose(System.Boolean)">
+            <summary>
+            Causes any buffered data to be written to the underlying stream, releases the unmanaged resources used by the StreamWriter, and optionally the managed resources.
+            </summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+            <remarks>
+            When the disposing parameter is <see langword="true"/>, this method releases all resources held by any managed objects that this StreamWriter references. This method invokes the <see cref="M:System.IO.StreamWriter.Dispose(System.Boolean)"/> method of each referenced object.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamWriter.Flush">
+            <summary>
+            Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">The current writer is closed.</exception>
+            <exception cref="T:System.IO.IOException">An I/O error has occurred.</exception>
+            <remarks>
+            This method overrides TextWriter.Flush.
+            Flushing the stream will not flush its underlying encoder unless you explicitly call Flush or <see cref="M:System.IO.StreamWriter.Close"/>.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamWriter.Write(System.Char)">
+            <summary>
+            Writes a character to the stream.
+            </summary>
+            <param name="value"></param>
+            <remarks>
+            This method overrides <see cref="M:System.IO.TextWriter.Write(System.Char)"/>.
+            The specified character is written to the underlying stream unless the end of the stream is reached prematurely.
+            </remarks>
+        </member>
+        <member name="M:System.IO.StreamWriter.WriteLine">
+            <inheritdoc/>
+        </member>
+        <member name="M:System.IO.StreamWriter.WriteLine(System.String)">
+            <summary>
+            Writes a string to the stream, followed by a line terminator.
+            </summary>
+            <remarks>
+            This overload is equivalent to the <see cref="M:System.IO.TextWriter.Write(System.String)"/> overload.
+            The line terminator is defined by the CoreNewLine field.
+            This method does not search the specified string for individual newline characters(hexadecimal 0x000a) and replace them with NewLine.
+            </remarks>
+        </member>
+        <member name="T:System.IO.TextReader">
+            <summary>
+            Represents a reader that can read a sequential series of characters.
+            </summary>
+            <remarks>
+            <see cref="T:System.IO.TextReader"/> is the abstract base class of StreamReader and StringReader, which read characters from streams and strings, respectively. Use these derived classes to open a text file for reading a specified range of characters, or to create a reader based on an existing stream.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.IO.TextReader"/> class.
+            </summary>
+            <remarks>
+            Use this constructor for derived classes.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.Close">
+            <summary>
+            Closes the <see cref="T:System.IO.TextReader"/> and releases any system resources associated with the <see cref="T:System.IO.TextReader"/>.
+            </summary>
+            <remarks>
+            This implementation of <see cref="M:System.IO.TextReader.Close"/> calls the <see cref="M:System.IO.TextReader.Dispose(System.Boolean)"/> method and passes it a true value.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:System.IO.TextReader"/> object.
+            </summary>
+        </member>
+        <member name="M:System.IO.TextReader.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.IO.TextReader"/> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+            <remarks>
+            This method is called by the public <see cref="M:System.IO.TextReader.Dispose"/> method and the Finalize method. By default, this method specifies the disposing parameter as <see langword="true"/>. Finalize specifies the disposing parameter as false.
+            When the disposing parameter is true, this method releases all resources held by any managed objects that this TextReader references. This method invokes the <see cref="M:System.IO.TextReader.Dispose"/> method of each referenced object.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.Peek">
+            <summary>
+            Reads the next character without changing the state of the reader or the character source. Returns the next available character without actually reading it from the reader.
+            </summary>
+            <returns>An integer representing the next character to be read, or -1 if no more characters are available or the reader does not support seeking.</returns>
+            <remarks>
+            <para>
+            The <see cref="M:System.IO.TextReader.Peek"/> method returns an integer value in order to determine whether the end of the file, or another error has occurred. This allows a user to first check if the returned value is -1 before casting it to a Char type.
+            </para>
+            <para>
+            The current position of the <see cref="T:System.IO.TextReader"/> is not changed by this operation.The returned value is -1 if no more characters are available.The default implementation returns -1.
+            </para>
+            <para>The TextReader class is an abstract class. Therefore, you do not instantiate it in your code.For an example of using the Peek method, see the StreamReader.Peek method.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.Read">
+            <summary>
+            Reads the next character from the text reader and advances the character position by one character.
+            </summary>
+            <returns>The next character from the text reader, or -1 if no more characters are available. The default implementation returns -1.</returns>
+            <remarks>
+            The <see cref="T:System.IO.TextReader"/> class is an abstract class. Therefore, you do not instantiate it in your code. For an example of using the Read method, see the StreamReader.Read method.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.Read(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reads a specified maximum number of characters from the current reader and writes the data to a buffer, beginning at the specified index.
+            </summary>
+            <param name="buffer">When this method returns, contains the specified character array with the values between <paramref name="index"/> and (<paramref name="index"/> + <paramref name="count"/> - 1) replaced by the characters read from the current source.</param>
+            <param name="index">The position in <paramref name="buffer"/> at which to begin writing.</param>
+            <param name="count">The maximum number of characters to read. If the end of the reader is reached before the specified number of characters is read into the buffer, the method returns.</param>
+            <returns>The number of characters that have been read. The number will be less than or equal to <paramref name="count"/>, depending on whether the data is available within the reader. This method returns 0 (zero) if it is called when no more characters are left to read.</returns>
+            <remarks>
+            <para>
+            This method returns after either count characters are read or the end of the file is reached. <see cref="M:System.IO.TextReader.ReadBlock(System.Char[],System.Int32,System.Int32)"/> is a blocking version of this method.
+            </para>
+            <para>
+            The <see cref="T:System.IO.TextReader"/> class is an abstract class. Therefore, you do not instantiate it in your code.For an example of using the <see cref="M:System.IO.TextReader.Read(System.Char[],System.Int32,System.Int32)"/> method, see the StreamReader.Read method.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.ReadBlock(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reads a specified maximum number of characters from the current text reader and writes the data to a buffer, beginning at the specified index.
+            </summary>
+            <param name="buffer">When this method returns, this parameter contains the specified character array with the values between <paramref name="index"/> and (<paramref name="index"/> + <paramref name="count"/> -1) replaced by the characters read from the current source.</param>
+            <param name="index">The position in <paramref name="buffer"/> at which to begin writing.</param>
+            <param name="count">The maximum number of characters to read.</param>
+            <returns>The number of characters that have been read. The number will be less than or equal to <paramref name="count"/>, depending on whether all input characters have been read.</returns>
+            <remarks>
+            <para>
+            The position of the underlying text reader is advanced by the number of characters that were read into buffer.
+            </para>
+            <para>
+            The method blocks until either count characters are read, or all characters have been read.This is a blocking version of <see cref="M:System.IO.TextReader.Read(System.Char[],System.Int32,System.Int32)"/>.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.ReadLine">
+            <summary>
+            Reads a line of characters from the text reader and returns the data as a string.
+            </summary>
+            <returns>The next line from the reader, or <see langword="null"/> if all characters have been read.</returns>
+            <remarks>
+            A line is defined as a sequence of characters followed by a carriage return (0x000d), a line feed (0x000a), a carriage return followed by a line feed, Environment.NewLine, or the end-of-stream marker. The string that is returned does not contain the terminating carriage return or line feed. The return value is null if the end of the input stream has been reached.
+            If the method throws an OutOfMemoryException exception, the reader's position in the underlying Stream is advanced by the number of characters the method was able to read, but the characters that were already read into the internal ReadLine buffer are discarded. Because the position of the reader in the stream cannot be changed, the characters that were already read are unrecoverable and can be accessed only by reinitializing the TextReader object. If the initial position within the stream is unknown or the stream does not support seeking, the underlying Stream also needs to be reinitialized.
+            To avoid such a situation and produce robust code you should use the Read method and store the read characters in a preallocated buffer.
+            The TextReader class is an abstract class. Therefore, you do not instantiate it in your code.For an example of using the ReadLine method, see the StreamReader.ReadLine method.
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextReader.ReadToEnd">
+            <summary>
+            Reads all characters from the current position to the end of the text reader and returns them as one string.
+            </summary>
+            <returns>A string that contains all characters from the current position to the end of the text reader.</returns>
+            <remarks>
+            If the method throws an <see cref="T:System.OutOfMemoryException"/> exception, the reader's position in the underlying Stream is advanced by the number of characters the method was able to read, but the characters that were already read into the internal ReadToEnd buffer are discarded. Because the position of the reader in the stream cannot be changed, the characters that were already read are unrecoverable and can be accessed only by reinitializing the TextReader. If the initial position within the stream is unknown or the stream does not support seeking, the underlying Stream also needs to be reinitialized.
+            To avoid such a situation and produce robust code you should use the Read method and store the read characters in a preallocated buffer.
+            The <see cref="T:System.IO.TextReader"/> class is an abstract class. Therefore, you do not instantiate it in your code.For an example of using the ReadToEnd method, see the StreamReader.ReadToEnd method.</remarks>
+        </member>
+        <member name="T:System.IO.TextWriter">
+            <summary>
+            Represents a writer that can write a sequential series of characters. This class is abstract.
+            </summary>
+        </member>
+        <member name="F:System.IO.TextWriter.CoreNewLine">
+            <summary>
+            Stores the newline characters used for this <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+        </member>
+        <member name="P:System.IO.TextWriter.Encoding">
+            <summary>
+            When overridden in a derived class, returns the character encoding in which the output is written.
+            </summary>
+        </member>
+        <member name="P:System.IO.TextWriter.NewLine">
+            <summary>
+            Gets or sets the line terminator string used by the current <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+        </member>
+        <member name="M:System.IO.TextWriter.Close">
+            <summary>
+            Closes the current writer and releases any system resources associated with the writer.
+            </summary>
+        </member>
+        <member name="M:System.IO.TextWriter.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.IO.TextWriter"/> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing"><see langword="true"/> to release both managed and unmanaged resources; <see langword="false"/> to release only unmanaged resources.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Dispose">
+            <summary>
+            Releases all resources used by the <see cref="T:System.IO.TextWriter"/> object.
+            </summary>
+        </member>
+        <member name="M:System.IO.TextWriter.Flush">
+            <summary>
+            Clears all buffers for the current writer and causes any buffered data to be written to the underlying device.
+            </summary>
+            <remarks>
+            <para>
+            This default method does nothing, but derived classes can override the method to provide the appropriate functionality.
+            </para>
+            <para>Flushing the stream will not flush its underlying encoder unless you explicitly call <see cref="M:System.IO.TextWriter.Flush"/> or <see cref="M:System.IO.TextWriter.Close"/>. Setting AutoFlush to <see langword="true"/> means that data will be flushed from the buffer to the stream, but the encoder state will not be flushed. This allows the encoder to keep its state (partial characters) so that it can encode the next block of characters correctly. This scenario affects UTF8 and UTF7 where certain characters can only be encoded after the encoder receives the adjacent character or characters.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Char)">
+            <summary>
+            Writes a character to the text stream.
+            </summary>
+            <param name="value">The character to write to the text stream.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Char[])">
+            <summary>
+            Writes a character array to the text stream.
+            </summary>
+            <param name="buffer">The character array to write to the text stream.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Writes a subarray of characters to the text stream.
+            </summary>
+            <param name="buffer">The character array to write data from.</param>
+            <param name="index">The character position in the buffer at which to start retrieving data.</param>
+            <param name="count">The number of characters to write.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="buffer"/> parameter is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> or <paramref name="count"/> is negative.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="buffer"/> length minus <paramref name="index"/> is less than <paramref name="count"/>.</exception>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Boolean)">
+            <summary>
+            Writes the text representation of a <see cref="T:System.Boolean"/> value to the text stream.
+            </summary>
+            <param name="value">The <see cref="T:System.Boolean"/> value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Int32)">
+            <summary>
+            Writes the text representation of a 4-byte signed integer to the text stream.
+            </summary>
+            <param name="value">The 4-byte signed integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.UInt32)">
+            <summary>
+            Writes the text representation of a 4-byte unsigned integer to the text stream.
+            </summary>
+            <param name="value">The 4-byte unsigned integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Int64)">
+            <summary>
+            Writes the text representation of an 8-byte signed integer to the text stream.
+            </summary>
+            <param name="value">The 8-byte signed integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.UInt64)">
+            <summary>
+            Writes the text representation of an 8-byte unsigned integer to the text stream.
+            </summary>
+            <param name="value">The 8-byte unsigned integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Single)">
+            <summary>
+            Writes the text representation of a 4-byte floating-point value to the text stream.
+            </summary>
+            <param name="value">The 4-byte floating-point value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Double)">
+            <summary>
+            Writes the text representation of an 8-byte floating-point value to the text stream.
+            </summary>
+            <param name="value">The 8-byte floating-point value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.String)">
+            <summary>
+            Writes a string to the text stream.
+            </summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.Write(System.Object)">
+            <summary>
+            Writes the text representation of an object to the text stream by calling the <see cref="M:System.Object.ToString"/> method on that object.
+            </summary>
+            <param name="value">The object to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine">
+            <summary>
+            Writes a line terminator to the text stream.
+            </summary>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Char)">
+            <summary>
+            Writes a character to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The character to write to the text stream.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Char[])">
+            <summary>
+            Writes a character array to the text stream, followed by a line terminator.
+            </summary>
+            <param name="buffer">The character array to write to the text stream.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Writes a subarray of characters to the text stream, followed by a line terminator.
+            </summary>
+            <param name="buffer">The character array to write data from.</param>
+            <param name="index">The character position in the buffer at which to start retrieving data.</param>
+            <param name="count">The number of characters to write.</param>
+            <exception cref="T:System.ArgumentNullException">The <paramref name="buffer"/> parameter is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> or <paramref name="count"/> is negative.</exception>
+            <exception cref="T:System.ArgumentException">The <paramref name="buffer"/> length minus <paramref name="index"/> is less than <paramref name="count"/>.</exception>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Boolean)">
+            <summary>
+            Writes the text representation of a <see cref="T:System.Boolean"/> value to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The <see cref="T:System.Boolean"/> value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Int32)">
+            <summary>
+            Writes the text representation of a 4-byte signed integer to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 4-byte signed integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.UInt32)">
+            <summary>
+            Writes the text representation of a 4-byte unsigned integer to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 4-byte unsigned integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Int64)">
+            <summary>
+            Writes the text representation of an 8-byte signed integer to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 8-byte signed integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.UInt64)">
+            <summary>
+            Writes the text representation of an 8-byte unsigned integer to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 8-byte unsigned integer to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Single)">
+            <summary>
+            Writes the text representation of a 4-byte floating-point value to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 4-byte floating-point value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Double)">
+            <summary>
+            Writes the text representation of an 8-byte floating-point value to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The 8-byte floating-point value to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.String)">
+            <summary>
+            Writes a string to the text stream, followed by a line terminator.
+            </summary>
+            <param name="value">The string to write.</param>
+        </member>
+        <member name="M:System.IO.TextWriter.WriteLine(System.Object)">
+            <summary>
+            Writes the text representation of an object to the text stream by calling the <see cref="M:System.Object.ToString"/> method on that object, followed by a line terminator.
+            </summary>
+            <param name="value">The object to write.</param>
+        </member>
+    </members>
+</doc>

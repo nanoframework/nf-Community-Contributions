@@ -1,0 +1,2309 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nanoFramework.Device.Bluetooth</name>
+    </assembly>
+    <members>
+        <member name="T:nanoFramework.Device.Bluetooth.BluetoothDeviceId">
+            <summary>
+            Represents a Bluetooth device ID.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.BluetoothDeviceId.FromId(System.Int32)">
+            <summary>
+            Creates a BluetoothDeviceId object from the device ID.
+            </summary>
+            <param name="deviceId">The device ID.</param>
+            <returns></returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.BluetoothDeviceId.Id">
+            <summary>
+            Gets the Bluetooth device ID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.BluetoothDeviceId.IsClassicDevice">
+            <summary>
+            Gets a boolean indicating if this is a classic device.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.BluetoothDeviceId.IsLowEnergyDevice">
+            <summary>
+            Gets a boolean indicating if this is a LowEnergy device.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.BluetoothError">
+            <summary>
+            Specifies common Bluetooth error cases.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.Success">
+            <summary>
+            The operation was successfully completed or serviced.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.RadioNotAvailable">
+            <summary>
+            The Bluetooth radio was not available. This error occurs when the Bluetooth radio
+            has been turned off.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.ResourceInUse">
+            <summary>
+            The operation cannot be serviced because the necessary resources are currently
+            in use.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.DeviceNotConnected">
+            <summary>
+            The operation cannot be completed because the remote device is not connected.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.OtherError">
+            <summary>
+             An unexpected error has occurred.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.DisabledByPolicy">
+            <summary>
+             The operation is disabled by policy.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.NotSupported">
+            <summary>
+            The operation is not supported on the current Bluetooth radio hardware.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.DisabledByUser">
+            <summary>
+            The operation is disabled by the user.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.ConsentRequired">
+            <summary>
+            The operation requires consent.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothError.TransportNotSupported">
+            <summary>
+            The transport is not supported.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEvent.type">
+            <summary>
+            Type of Bluetooth event
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEvent.ID">
+            <summary>
+            Event or Connect ID
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEvent.characteristicId">
+            <summary>
+            ID of Characteristic
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEvent.descriptorId">
+            <summary>
+            ID of Descriptor
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.BluetoothEventType">
+            <summary>
+            Event type for Bluetooth
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEventType.Read">
+            <summary>
+            Attribute Read
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEventType.Write">
+            <summary>
+            Attribute write
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEventType.ClientSubscribed">
+            <summary>
+            Client Subscribed
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.BluetoothEventType.ClientUnsubscribed">
+            <summary>
+            Client unsubscribed or connection terminated
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties">
+            <summary>
+            Specifies the values for the GATT characteristic
+            Extended Characteristic Properties Descriptor.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.None">
+            <summary>
+            The characteristic doesn’t have any properties that apply.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.Broadcast">
+            <summary>
+            The characteristic supports broadcasting
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.Read">
+            <summary>
+            The characteristic is readable
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.WriteWithoutResponse">
+            <summary>
+            The characteristic supports Write Without Response
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.Write">
+            <summary>
+            The characteristic is writeable
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.Notify">
+            <summary>
+            The characteristic is notifiable
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.Indicate">
+            <summary>
+            The characteristic is indicatable
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.AuthenticatedSignedWrites">
+            <summary>
+            The characteristic supports signed writes
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.ExtendedProperties">
+            <summary>
+            The ExtendedProperties Descriptor is present
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.ReliableWrites">
+            <summary>
+            The characteristic supports reliable writes
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicProperties.WritableAuxiliaries">
+            <summary>
+            The characteristic has writeable auxiliaries
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids">
+            <summary>
+            Represents an enumeration of the most well known Characteristic UUID values,
+            and provides convenience methods for working with GATT characteristic UUIDs,
+            and static properties providing characteristic UUIDs for common GATT characteristics.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BatteryLevel">
+            <summary>
+            Gets the Bluetooth SIG-defined Battery Level Characteristic UUID (0x2A19).
+            Percentage 0% to 100%, byte
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BloodPressureFeature">
+            <summary>
+            Gets the Bluetooth SIG-defined Blood Pressure Feature Characteristic UUID (0x2A49).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BloodPressureMeasurement">
+            <summary>
+             Gets the Bluetooth SIG-defined Blood Pressure Measurement Characteristic UUID ( 0x2A35).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BodySensorLocation">
+            <summary>
+            Gets the Bluetooth SIG-defined Body Sensor Location Characteristic UUID (0x2A38).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CscFeature">
+            <summary>
+            Gets the Bluetooth SIG-defined Csc Feature Characteristic UUID (0x2A5C).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CscMeasurement">
+            <summary>
+             Gets the Bluetooth SIG-defined Csc Measurement Characteristic UUID (0x2A5B).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GlucoseFeature">
+            <summary>
+             Gets the Bluetooth SIG-defined Glucose Feature Characteristic UUID (0x2A51).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GlucoseMeasurement">
+            <summary>
+            Gets the Bluetooth SIG-defined Glucose Measurement Characteristic UUID (0x2A18).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GlucoseMeasurementContext">
+            <summary>
+            Gets the Bluetooth SIG-defined Glucose Measurement Context Characteristic UUID (0x2A34).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.HeartRateControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Heart Rate Control Point Characteristic UUID (0x2A39).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.HeartRateMeasurement">
+            <summary>
+            Gets the Bluetooth SIG-defined Heart Rate Measurement Characteristic UUID (0x2A37)
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Humidity">
+            <summary>
+            Gets the Bluetooth SIG-defined Humidity Characteristic UUID (0x2A6F)
+            Uint16, Percentage 0-100 expressed in 0.01 units, 50%=5000
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.IntermediateCuffPressure">
+            <summary>
+            Gets the Bluetooth SIG-defined Intermediate Cuff Pressure Characteristic UUID (0x2A36).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.IntermediateTemperature">
+            <summary>
+             Gets the Bluetooth SIG-defined Intermediate Temperature Characteristic UUID (0x2A1E).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.MeasurementInterval">
+            <summary>
+            Gets the Bluetooth SIG-defined Measurement Interval Characteristic UUID (0x2A21).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Pressure">
+            <summary>
+            Gets the Bluetooth SIG-defined Pressure Characteristic UUID (0x2A6D).
+            Uint32, Unit is Pascal with resolution of 0.1 Pa
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Rainfall">
+            <summary>
+            Gets the Bluetooth SIG-defined Rainfall Characteristic UUID (0x2A78).
+            Uint16, Unit is Meters with resolution of 1mm
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.RecordAccessControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Record Access Control Point Characteristic UUID (0x2A52).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.RscFeature">
+            <summary>
+            Gets the Bluetooth SIG-defined Rsc Feature Characteristic UUID (0x2A54).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.RscMeasurement">
+            <summary>
+            Gets the Bluetooth SIG-defined Rsc Measurement Characteristic UUID (0x2A53).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SCControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined SC Control Point Characteristic UUID (0x2A55).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SensorLocation">
+            <summary>
+            Gets the Bluetooth SIG-defined Sensor Location Characteristic UUID (0x2A5D).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Temperature">
+            <summary>
+             Gets the Bluetooth SIG-defined Temperature Characteristic UUID (0x2A6E).
+             Int16, -273.15 to 327.67 Celsius. Resolution 0.01,  89.5c = 8950
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TemperatureMeasurement">
+            <summary>
+             Gets the Bluetooth SIG-defined Temperature Measurement Characteristic UUID (0x2a1c).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TemperatureType">
+            <summary>
+            Gets the Bluetooth SIG-defined Temperature Type Characteristic UUID (0x2A1D).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GapPeripheralPreferredConnectionParameters">
+            <summary>
+            Gets the Bluetooth SIG-defined Gap Peripheral Preferred Connection Parameters characteristic UUID (0x2A04).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GapPeripheralPrivacyFlag">
+            <summary>
+            Gets the Bluetooth Gap Peripheral PrivacyFlag characteristic UUID (0x2A02).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GapReconnectionAddress">
+            <summary>
+            Gets the Bluetooth SIG-defined Gap Reconnection Address characteristic UUID (0x2A03).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GattServiceChanged">
+            <summary>
+             Gets the Bluetooth SIG-defined Gatt Service Changed characteristic UUID (0x2A05).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.HardwareRevisionString">
+            <summary>
+            Gets the Bluetooth SIG-defined Hardware Revision String characteristic UUID (0x2A27).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.HidControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Hid Control Point characteristic UUID (0x2A4C).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.HidInformation">
+            <summary>
+            Gets the Bluetooth SIG-defined Hid Information characteristic UUID (0x2A4A).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Ieee1107320601RegulatoryCertificationDataList">
+            <summary>
+            Gets the Bluetooth SIG-defined Ieee 1107320601 Regulatory Certification Data List
+            characteristic UUID (0x2A2A).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.LnControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Ln Control Point characteristic UUID (0x2A6B).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.LnFeature">
+            <summary>
+            Gets the Bluetooth SIG-defined Ln Feature characteristic UUID (0x2A6A).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.LocalTimeInformation">
+            <summary>
+            Gets the Bluetooth SIG-defined Local Time Information characteristic UUID (0x2A0F).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.LocationAndSpeed">
+            <summary>
+            Gets the Bluetooth SIG-defined Location And Speed characteristic UUID (0x2A67).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ManufacturerNameString">
+            <summary>
+            Gets the Bluetooth SIG-defined Manufacturer Name String characteristic UUID (0x2A29).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ModelNumberString">
+            <summary>
+            Gets the Bluetooth SIG-defined Model Number String UUID (0x2A24).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Navigation">
+            <summary>
+            Gets the Bluetooth SIG-defined Navigation characteristic UUID (0x2A68).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.NewAlert">
+            <summary>
+            Gets the Bluetooth SIG-defined NewAlert characteristic UUID (0x2A46).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.PnpId">
+            <summary>
+            Gets the Bluetooth SIG-defined PnpId characteristic UUID (0x2A50).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.PositionQuality">
+            <summary>
+            Gets the Bluetooth SIG-defined Position Quality characteristic UUID (0x2A69).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ProtocolMode">
+            <summary>
+            Gets the Bluetooth SIG-defined Protocol Mode characteristic UUID (0x2A4E).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CyclingPowerFeature">
+            <summary>
+            Gets the Bluetooth SIG-defined Cycling Power Feature characteristic UUID (0x2A65).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.Report">
+            <summary>
+            Gets the Bluetooth SIG-defined Report characteristic UUID (0x2A4D).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ReportMap">
+            <summary>
+             Gets the Bluetooth SIG-defined Report Map characteristic UUID (0x2A4B).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.RingerControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Ringer Control Point characteristic UUID (0x2A40).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.RingerSetting">
+            <summary>
+            Gets the Bluetooth SIG-defined Ringer Setting characteristic UUID (0x2A41).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ScanIntervalWindow">
+            <summary>
+            Gets the Bluetooth SIG-defined ScanIntervalWindow characteristic UUID (0x2A4F).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ScanRefresh">
+            <summary>
+            Gets the Bluetooth SIG-defined Scan Refresh characteristic UUID (0x2A31).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SerialNumberString">
+            <summary>
+            Gets the Bluetooth SIG-defined Serial Number String characteristic UUID (0x2A25).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SoftwareRevisionString">
+            <summary>
+            Gets the Bluetooth SIG-defined Software Revision String characteristic UUID (0x2A28).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SupportUnreadAlertCategory">
+            <summary>
+            Gets the Bluetooth SIG-defined Support Unread Alert Category characteristic UUID (0x2A48).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SupportedNewAlertCategory">
+            <summary>
+            Gets the Bluetooth SIG-defined SupportedNewAlertCategory characteristic UUID (0x2A47).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.SystemId">
+            <summary>
+            Gets the Bluetooth SIG-defined SystemId characteristic UUID (0x2A23).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeAccuracy">
+            <summary>
+            Gets the Bluetooth SIG-defined Time Accuracy characteristic UUID (0x2A12).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeSource">
+            <summary>
+            Gets the Bluetooth SIG-defined TimeSource characteristic UUID (0x2A13).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeUpdateControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Time Update Control Point characteristic UUID (0x2A16).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeUpdateState">
+            <summary>
+            Gets the Bluetooth SIG-defined Time Update State characteristic UUID (0x2A17).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeWithDst">
+            <summary>
+            Gets the Bluetooth SIG-defined Time With Dst characteristic UUID (0x2A11).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TimeZone">
+            <summary>
+            Gets the Bluetooth SIG-defined TimeZone characteristic UUID (0x2A0E).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.TxPowerLevel">
+            <summary>
+            Gets the Bluetooth SIG-defined Tx Power Level characteristic UUID (0x2A07).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.UnreadAlertStatus">
+            <summary>
+            Gets the Bluetooth SIG-defined Unread Alert Status characteristic UUID (0x2A45).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.AlertCategoryId">
+            <summary>
+            Gets the Bluetooth SIG-defined AlertCategoryId characteristic UUID (0x2A43).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.AlertCategoryIdBitMask">
+            <summary>
+            Gets the Bluetooth SIG-Defined AlertCategoryIdBitMask characteristic UUID. To
+            view a list of all Bluetooth SIG-defined characteristic UUIDs, see Bluetooth
+            SIG-defined Characteristic UUIDs (0x2A42).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.AlertLevel">
+            <summary>
+            Gets the Bluetooth SIG-defined Alert Level characteristic UUID (0x2A06).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.AlertNotificationControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined Alert Notification ControlPoint characteristic UUID (0x2A44).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.AlertStatus">
+            <summary>
+            Gets the Bluetooth SIG-defined AlertStatus characteristic UUID (0x2A3F).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BootKeyboardInputReport">
+            <summary>
+            Gets the Bluetooth SIG-defined Boot Keyboard Input Report characteristic UUID (0x2A22).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BootKeyboardOutputReport">
+            <summary>
+            Gets the Bluetooth SIG-defined BootKeyboardOutputReport characteristic UUID (0x2A32).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.BootMouseInputReport">
+            <summary>
+            Gets the Bluetooth SIG-defined BootMouseInputReport characteristic UUID (0x2A33).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CurrentTime">
+            <summary>
+            Gets the Bluetooth SIG-defined Current Time characteristic UUID (0x2A2B).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CyclingPowerControlPoint">
+            <summary>
+            Gets the Bluetooth SIG-defined CyclingPowerControlPoint characteristic UUID (0x2A66).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ReferenceTimeInformation">
+            <summary>
+            Gets the Bluetooth SIG-defined Reference Time Information characteristic UUID (0x2A14).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CyclingPowerMeasurement">
+            <summary>
+            Gets the Bluetooth SIG-defined Cycling Power Measurement characteristic UUID (0x2A63).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.CyclingPowerVector">
+            <summary>
+            Gets the Bluetooth SIG-defined Cycling Power Vector characteristic UUID (0x2A64).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.DateTime">
+            <summary>
+            Gets the Bluetooth SIG-defined Date Time characteristic UUID (0x2A08).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.DayDateTime">
+            <summary>
+            Gets the Bluetooth SIG-defined Day Date Time characteristic UUID (0x2A0A).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.DayOfWeek">
+            <summary>
+            Gets the Bluetooth SIG-defined DayOfWeek characteristic UUID (0x2A09).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.DstOffset">
+            <summary>
+            Gets the Bluetooth SIG-defined DstOffset characteristic UUID (0x2A0D).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.ExactTime256">
+            <summary>
+            Gets the Bluetooth SIG-defined ExactTime256 characteristic UUID (0x2A0C).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.FirmwareRevisionString">
+            <summary>
+            Gets the Bluetooth SIG-defined Firmware Revision String characteristic UUID (0x2A26).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GapAppearance">
+            <summary>
+            Gets the Bluetooth SIG-defined Gap Appearance characteristic UUID (0x2A01).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids.GapDeviceName">
+            <summary>
+            Gets the Bluetooth SIG-defined Gap DeviceName characteristic UUID (0x2A00).
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattClientNotificationResult">
+            <summary>
+            The result of NotifyValue
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattClientNotificationResult.ProtocolError">
+            <summary>
+            Gets the protocol error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattClientNotificationResult.Status">
+            <summary>
+            Gets the GATT communication status.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattClientNotificationResult.SubscribedClient">
+            <summary>
+            Gets the subscribed client.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattClientNotificationResult.BytesSent">
+            <summary>
+            Gets the bytes that were sent.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCommunicationStatus">
+            <summary>
+            Represents the return status of a GATT API related operation.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCommunicationStatus.Success">
+            <summary>
+            The operation completed successfully.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCommunicationStatus.Unreachable">
+            <summary>
+            No communication can be performed with the device, at this time.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCommunicationStatus.ProtocolError">
+            <summary>
+            There was a GATT communication protocol error.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattCommunicationStatus.AccessDenied">
+            <summary>
+            Access is denied.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids">
+            <summary>
+            Represents an enumeration of the most well known Descriptor UUID values, and
+            provides convenience methods for working with GATT descriptor UUIDs, and static
+            properties providing descriptor UUIDs for common GATT descriptors.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.CharacteristicAggregateFormat">
+            <summary>
+            Gets the Bluetooth SIG-defined Characteristic Aggregate Format Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.CharacteristicExtendedProperties">
+            <summary>
+             Gets the Bluetooth SIG-defined Characteristic Extended Properties Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.CharacteristicPresentationFormat">
+            <summary>
+            Gets the Bluetooth SIG-defined Characteristic Presentation Format Descriptor
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.CharacteristicUserDescription">
+            <summary>
+            Gets the Bluetooth SIG-defined Characteristic User Description Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.ClientCharacteristicConfiguration">
+            <summary>
+            Gets the Bluetooth SIG-defined Client Characteristic Configuration Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.ServerCharacteristicConfiguration">
+            <summary>
+            Gets the Bluetooth SIG-defined Server Characteristic Configuration Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.ValueTriggerSetting">
+            <summary>
+            Gets the Bluetooth SIG-defined Value trigger settings Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.EssConfiguration">
+            <summary>
+            Gets the Bluetooth SIG-defined Environmental Sensing Configuration Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.EssMeasurement">
+            <summary>
+            Gets the Bluetooth SIG-defined Environmental Sensing Measurement Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.EssTriggerSetting">
+            <summary>
+            Gets the Bluetooth SIG-defined Environmental Sensing Trigger Setting Descriptor UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattDescriptorUuids.TimeTriggerSetting">
+            <summary>
+            Gets the Bluetooth SIG-defined Time Trigger Setting  Descriptor UUID.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic">
+            <summary>
+             This class represents a local characteristic.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.GattLocalCharacteristicReadEventHandler">
+            <summary>
+            Delegate for Read requests
+            </summary>
+            <param name="sender">GattLocalCharacteristic sending event</param>
+            <param name="ReadRequestEventArgs">Event arguments</param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.GattLocalCharacteristicWriteEventHandler">
+            <summary>
+            Delegate for Write requests
+            </summary>
+            <param name="sender">GattLocalCharacteristic sending event</param>
+            <param name="WriteRequestEventArgs">Event arguments</param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.GattLocalCharacteristicClientsChangedEventHandler">
+            <summary>
+            Delegate for Clients Changed events
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.CreateDescriptor(System.Guid,nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters)">
+            <summary>
+            Creates descriptor for this local characteristic.
+            </summary>
+            <param name="descriptorUuid">The descriptor UUID.</param>
+            <param name="parameters">The parameters for the descriptor.</param>
+            <returns>A GattLocalDescriptorResult object.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.NotifyValue(nanoFramework.Device.Bluetooth.Buffer)">
+            <summary>
+            Send and notifies all subscribed clients a GattSubscribedClient of a value.
+            </summary>
+            <param name="value">The buffer that contains the value to send to the GattSubscribedClient.</param>
+            <returns>
+            An array of all the GattClientNotificationResult for each subscribed client.
+            </returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.NotifyValue(nanoFramework.Device.Bluetooth.Buffer,nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSubscribedClient)">
+            <summary>
+            Sends and notifies a GattSubscribedClient of a value.
+            </summary>
+            <param name="value">The buffer that contains the value to send to the GattSubscribedClient</param>
+            <param name="subscribedClient">The subscribed client notify the value.</param>
+            <returns></returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.CharacteristicProperties">
+            <summary>
+            Gets the local characteristic properties.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.Descriptors">
+            <summary>
+             Gets a vector list of all the descriptors for this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.PresentationFormats">
+            <summary>
+            Gets the presentation formats for this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.ReadProtectionLevel">
+            <summary>
+            Gets the read protection level of this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.StaticValue">
+            <summary>
+            Gets the static value for this local GATT characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.SubscribedClients">
+            <summary>
+            Gets an array of all clients that are subscribed to this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.UserDescription">
+            <summary>
+            Gets the user-friendly description for this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.Uuid">
+            <summary>
+            Gets the BluetoothSIG-defined UUID for this local characteristic.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.WriteProtectionLevel">
+            <summary>
+            Gets the write protection level of this local characteristic.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.ReadRequested">
+            <summary>
+            An event that is triggered when a GATT client requests a read operation.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.WriteRequested">
+            <summary>
+            This is an event that is triggered when a write was requested.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic.SubscribedClientsChanged">
+            <summary>
+             An event that triggers when clients subscribed to this local characteristic changes.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters">
+            <summary>
+            This class contains the local characteristic descriptor parameters.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.#ctor">
+            <summary>
+            Creates a new GattLocalCharacteristicParameters object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.WriteProtectionLevel">
+            <summary>
+            Gets and sets the write protection level.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.UserDescription">
+            <summary>
+            Gets or sets the user-friendly description.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.StaticValue">
+            <summary>
+             Gets or sets the static value.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.ReadProtectionLevel">
+            <summary>
+            Gets or sets the read protection level.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.CharacteristicProperties">
+            <summary>
+            Gets the properties.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.PresentationFormats">
+            <summary>
+             Gets or sets the presentation formats arrayLIst
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters.CreateGattPresentationFormat(System.Byte,System.Int32,System.UInt16,System.Byte,System.UInt16)">
+            <summary>
+            Create a GattPresentationFormat to the GattLocalCharacteristicParameters
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult">
+            <summary>
+            A result of CreateCharacteristic
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult.Characteristic">
+            <summary>
+            Gets the characteristic of the GATT service.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult.Error">
+            <summary>
+            Gets the Bluetooth error.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor">
+            <summary>
+             This class defines a descriptor of a local characteristic.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.GattLocalDescriptorReadEventHandler">
+            <summary>
+            Delegate for Read requests
+            </summary>
+            <param name="sender">GattLocalDescriptor sending event</param>
+            <param name="ReadRequestEventArgs">Event arguments</param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.GattLocalDescriptorWriteEventHandler">
+            <summary>
+            Delegate for Write requests
+            </summary>
+            <param name="sender">GattLocalDescriptor sending event</param>
+            <param name="WriteRequestEventArgs">Event arguments</param>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.ReadProtectionLevel">
+            <summary>
+             Gets the read protection level of this local characteristic descriptor.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.StaticValue">
+            <summary>
+             Gets the static value for this local characteristic descriptor.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.Uuid">
+            <summary>
+             Gets the Bluetooth SIG-defined UUID for this local characteristic descriptor.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.WriteProtectionLevel">
+            <summary>
+             Gets the write protection level.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.ReadRequested">
+            <summary>
+            An event that is triggered when a GATT client requests a descriptor read operation.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptor.WriteRequested">
+            <summary>
+            This is an event that is triggered when a write descriptor was requested.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters">
+            <summary>
+            This class defines the parameters of a descriptor.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters.#ctor">
+            <summary>
+            Creates a new GattLocalDescriptorParameters object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters.WriteProtectionLevel">
+            <summary>
+            Gets or sets the write protection level.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters.StaticValue">
+            <summary>
+            Gets or sets the static value.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters.ReadProtectionLevel">
+            <summary>
+            Gets or sets the read protection level.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult">
+            <summary>
+             The result of local characteristic descriptor operations like CreateDescriptorAsync.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult.Descriptor">
+            <summary>
+            Gets the descriptor.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult.Error">
+            <summary>
+            Gets the error.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalService">
+            <summary>
+            This class represents a GATT local service.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalService.CreateCharacteristic(System.Guid,nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters)">
+            <summary>
+            Creates a characteristic for this local service.
+            </summary>
+            <param name="characteristicUuid">The characteristic UUID.</param>
+            <param name="parameters">The characteristic parameters.</param>
+            <returns>An GattLocalCharacteristicResult object</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalService.Characteristics">
+            <summary>
+            Gets a array of the characteristics available for this local service.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalService.Uuid">
+            <summary>
+             Gets the local service UUID.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat">
+            <summary>
+             Represents the value of a single Presentation Format GATT Descriptor.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.FromParts(System.Byte,System.Int32,System.UInt16,System.Byte,System.UInt16)">
+            <summary>
+            Creates a GattPresentationFormat object from parts.
+            </summary>
+            <param name="formatType">The Format Type.</param>
+            <param name="exponent">The exponent.</param>
+            <param name="unit">The unit.</param>
+            <param name="namespaceId">The namespace ID.</param>
+            <param name="description">The description.</param>
+            <returns>An instance of GattPresentationFormat.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.Description">
+            <summary>
+            Gets the Description of the GattPresentationFormat object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.Exponent">
+            <summary>
+            Gets the Exponent of the GattPresentationFormat object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.FormatType">
+            <summary>
+            Gets the Format Type of the GattPresentationFormat object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.Namespace">
+            <summary>
+            Gets the Name space of the GattPresentationFormat object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormat.Unit">
+            <summary>
+            Gets the Unit of the GattPresentationFormat object.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes">
+            <summary>
+            Represents the different well-known values that the GattPresentationFormat.FormatType
+            property can take.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Bit2">
+            <summary>
+            Gets the value of the Bit2 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Boolean">
+            <summary>
+            Gets the value of the Boolean Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.DUInt16">
+            <summary>
+            Gets the value of the DUInt16 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Float">
+            <summary>
+            Gets the value of the Float Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Float32">
+            <summary>
+            Gets the value of the Float32 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Float64">
+            <summary>
+            Gets the value of the Float64 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Nibble">
+            <summary>
+            Gets the value of the Nibble Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SFloat">
+            <summary>
+            Gets the value of the SFloat Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt12">
+            <summary>
+            Gets the value of the SInt12 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt128">
+            <summary>
+            Gets the value of the SInt128 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt16">
+            <summary>
+            Gets the value of the SInt16 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt24">
+            <summary>
+            Gets the value of the SInt24 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt32">
+            <summary>
+            Gets the value of the SInt32 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt48">
+            <summary>
+            Gets the value of the SInt48 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt64">
+            <summary>
+            Gets the value of the SInt64 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.SInt8">
+            <summary>
+            Gets the value of the SInt8 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Struct">
+            <summary>
+            Gets the value of the Struct Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt12">
+            <summary>
+            Gets the value of the UInt12 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt128">
+            <summary>
+            Gets the value of the UInt128 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt16">
+            <summary>
+            Gets the value of the UInt16 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt24">
+            <summary>
+            Gets the value of the UInt24 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt32">
+            <summary>
+            Gets the value of the UInt32 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt48">
+            <summary>
+            Gets the value of the UInt48 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt64">
+            <summary>
+            Gets the value of the UInt64 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.UInt8">
+            <summary>
+            Gets the value of the UInt8 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Utf16">
+            <summary>
+            Gets the value of the Utf16 Format Type.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes.Utf8">
+            <summary>
+            Gets the value of the Utf8 Format Type.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtectionLevel">
+            <summary>
+            Represents the desired security level.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtectionLevel.Plain">
+            <summary>
+            Uses the default protection level.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtectionLevel.AuthenticationRequired">
+            <summary>
+            Require the link to be authenticated.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtectionLevel.EncryptionRequired">
+            <summary>
+            Require the link to be encrypted.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtectionLevel.EncryptionAndAuthenticationRequired">
+            <summary>
+            Require the link to be encrypted and authenticated.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError">
+            <summary>
+            This class contains byte values for GATT protocol errors.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.AttributeNotFound">
+            <summary>
+             Gets the byte value for an attribute not found error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.AttributeNotLong">
+            <summary>
+             Gets the byte value for an attribute not long error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InsufficientAuthentication">
+            <summary>
+            Gets the byte value for an insufficient authentication error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InsufficientAuthorization">
+            <summary>
+            Gets the byte value for an insufficient authorization error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InsufficientEncryption">
+            <summary>
+            Gets the byte value for an insufficient encryption error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InsufficientEncryptionKeySize">
+            <summary>
+            Gets the byte value for an insufficient encryption key size error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InsufficientResources">
+            <summary>
+             Gets the byte value for an insufficient resources error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InvalidAttributeValueLength">
+            <summary>
+             Gets the byte value for an invalid attribute value length error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InvalidHandle">
+            <summary>
+            Gets the byte value for an invalid handle error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InvalidOffset">
+            <summary>
+             Gets the byte value for an invalid offset error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.InvalidPdu">
+            <summary>
+            Gets the byte value for an invalid PDU error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.PrepareQueueFull">
+            <summary>
+            Gets the byte value for a prepare queue full error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.ReadNotPermitted">
+            <summary>
+             Gets the byte value for a read not permitted error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.RequestNotSupported">
+            <summary>
+            Gets the byte value for a request not supported error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.UnlikelyError">
+            <summary>
+             Gets the byte value for an unlikely error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.UnsupportedGroupType">
+            <summary>
+             Gets the byte value for an unsupported group type error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattProtocolError.WriteNotPermitted">
+            <summary>
+             Gets the byte value for a write not permitted error.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequest">
+            <summary>
+            This class represents a Bluetooth GATT read request.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequest.RespondWithValue(nanoFramework.Device.Bluetooth.Buffer)">
+            <summary>
+            Responds to a read request with a value.
+            </summary>
+            <param name="value"> The value to respond with.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequest.RespondWithProtocolError(System.Byte)">
+            <summary>
+            Responds to the read request with a protocol error.
+            </summary>
+            <param name="protocolError">The protocol error to send. A list of errors with the byte values can be found in GattProtocolError.</param>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequest.Length">
+            <summary>
+             Gets the buffer length of the read request.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs">
+            <summary>
+            This class contains the arguments for the StateChanged event.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs.GetRequest">
+            <summary>
+            Gets the GATT read request.
+            </summary>
+            <returns>Returns a GattReadRequest object.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs.Session">
+            <summary>
+            Gets the session.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider">
+            <summary>
+            This class is used to advertise GATT services.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.AddDeviceInformationService">
+            <summary>
+            Add default Device Information Service
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.StartAdvertising">
+            <summary>
+            Start advertising the GATT service.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.StartAdvertising(nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters)">
+            <summary>
+            Start advertising the GATT service.
+            </summary>
+            <param name="parameters">The advertising parameters.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.StopAdvertising">
+            <summary>
+             Stop advertising the GATT service.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.Create(System.Guid)">
+            <summary>
+             Creates a new GATT service with the specified serviceUuid
+            </summary>
+            <param name="serviceUuid">The service UUID.</param>
+            <returns>A GattServiceProviderResult object.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.AdvertisementStatus">
+            <summary>
+            Gets the advertisement status of this GATT service.
+            </summary>
+            <Returns>The advertisement service.</Returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.Service">
+            <summary>
+            Gets the GATT primary service.
+            </summary>
+            <returns>The primary service.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.Services">
+            <summary>
+            Get an array of all associated services for this service provider.
+            </summary>
+            <remarks>
+            The primary service will be index 0 followed by the Device Information at index 1.
+            Any other Services added to provider will follow these in the order they were created.
+            </remarks>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProvider.AddService(System.Guid)">
+            <summary>
+            Creates a new service or replaces an existing service.
+            Created service is added to this service provider.
+            </summary>
+            <param name="serviceUuid">Uuid for the service to be created/replaced.</param>
+            <returns>
+            Returns the created service.
+            </returns>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus">
+            <summary>
+            This enumeration defines the advertisement status of a GattServiceProvider.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus.Created">
+            <summary>
+            The GATT service was created.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus.Stopped">
+            <summary>
+            The GATT service is not advertising.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus.Started">
+            <summary>
+            The GATT service advertising has started.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus.Aborted">
+            <summary>
+            The GATT service was aborted.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatus.StartedWithoutAllAdvertisementData">
+            <summary>
+            Indicates that the system was successfully able to issue the advertisement request,
+            but not all of the requested data could be included in the advertisement.</summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters">
+            <summary>
+            This class is used to define the GATT service advertisement parameters.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters.#ctor">
+            <summary>
+             Creates a new GattServiceProviderAdvertisingParameters object.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters.IsDiscoverable">
+            <summary>
+            Gets or sets a boolean indicating that the GATT service is discoverable.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters.IsConnectable">
+            <summary>
+            Gets or sets a boolean that indicates if the GATT service is connect-able.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters.DeviceName">
+            <summary>
+            Friendly device name used for advertising service.
+            Default "nanoFramework"
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters.ServiceData">
+            <summary>
+            For Bluetooth Low Energy, this parameter adds an additional **ServiceData** section
+            to the advertisement payload for the service's service UUID if space is available.
+            If the service data is added to the advertisement, then the service UUID will
+            also be included in the same section in the advertisement.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderResult">
+            <summary>
+            This class is the result of the Create operation.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderResult.Error">
+            <summary>
+            Gets the error.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceProviderResult.ServiceProvider">
+            <summary>
+            Gets the service provider.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids">
+            <summary>
+            Represents an enumeration of the most well known Service UUID values, and provides
+            convenience methods for working with GATT service UUIDs, and static properties
+            providing service UUIDs for common GATT services. To view a list of all Bluetooth
+            SIG-defined service UUIDs, see Bluetooth SIG-defined Service UUIDs.
+            See:- https://btprodspecificationrefs.blob.core.windows.net/assigned-values/16-bit%20UUID%20Numbers%20Document.pdf
+            Current Service UUID 0x1800 to 0x181D
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.AlertNotification">
+            <summary>
+             Gets the Bluetooth SIG-defined AlertNotification Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.AutomationIO">
+            <summary>
+            Gets the Bluetooth SIG-defined Automation IO Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.Battery">
+            <summary>
+            Gets the Bluetooth SIG-defined Battery Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.BloodPressure">
+            <summary>
+            Gets the Bluetooth SIG-defined Blood Pressure Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.BodyComposition">
+            <summary>
+            Gets the Bluetooth SIG-defined Body Composition Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.CurrentTime">
+            <summary>
+            Gets the Bluetooth SIG-defined CurrentTime service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.CyclingPower">
+            <summary>
+            Gets the Bluetooth SIG-defined CyclingPower service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.CyclingSpeedAndCadence">
+            <summary>
+            Gets the Bluetooth SIG-defined Cycling Speed And Cadence Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.DeviceInformation">
+            <summary>
+            Gets the Bluetooth SIG-defined DeviceInformation service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.EnvironmentalSensing">
+            <summary>
+            Gets the Bluetooth SIG-defined Environmental Sensing Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.GenericAccess">
+            <summary>
+            Gets the Bluetooth SIG-defined UUID for the Generic Access Service.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.GenericAttribute">
+            <summary>
+            Gets the Bluetooth SIG-defined UUID for the Generic Attribute Service.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.Glucose">
+            <summary>
+            Gets the Bluetooth SIG-defined Glucose Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.HealthThermometer">
+            <summary>
+            Gets the Bluetooth SIG-defined Health Thermometer Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.HeartRate">
+            <summary>
+            Gets the Bluetooth SIG-defined Heart Rate Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.HumanInterfaceDevice">
+            <summary>
+            Gets the Bluetooth SIG-defined HumanInterfaceDevice service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.ImmediateAlert">
+            <summary>
+            Gets the Bluetooth SIG-defined ImmediateAlert service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.LinkLoss">
+            <summary>
+            Gets the Bluetooth SIG-defined LinkLoss service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.LocationAndNavigation">
+            <summary>
+            Gets the Bluetooth SIG-defined LocationAndNavigation service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.NextDstChange">
+            <summary>
+            Gets the Bluetooth SIG-defined NextDstChange service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.PhoneAlertStatus">
+            <summary>
+            Gets the Bluetooth SIG-defined PhoneAlertStatus service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.ReferenceTimeUpdate">
+            <summary>
+            Gets the Bluetooth SIG-defined ReferenceTimeUpdate service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.RunningSpeedAndCadence">
+            <summary>
+            Gets the Bluetooth SIG-defined Running Speed And Cadence Service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.ScanParameters">
+            <summary>
+            Gets the Bluetooth SIG-defined ScanParameters service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.TxPower">
+            <summary>
+            Gets the Bluetooth SIG-defined TxPower service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.UserData">
+            <summary>
+            Gets the Bluetooth SIG-defined User Data service UUID.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattServiceUuids.WeightScale">
+            <summary>
+            Gets the Bluetooth SIG-defined Weight Scale service UUID.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSession">
+            <summary>
+            This class represents a GATT session.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSession.Dispose">
+            <summary>
+            Dispose GattSession object
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSession.FromDeviceId(nanoFramework.Device.Bluetooth.BluetoothDeviceId)">
+            <summary>
+            Creates a new GattSession object from the specified deviceId.
+            </summary>
+            <param name="deviceId">The deviceId.</param>
+            <returns> A new GattSession object.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSession.DeviceId">
+            <summary>
+            Gets the device ID.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSessionStatus">
+            <summary>
+            This enumeration defines a GattSession status.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSessionStatus.Closed">
+            <summary>
+            The GATT session is closed.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSessionStatus.Active">
+            <summary>
+            The GATT session is active.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSubscribedClient">
+            <summary>
+             This class represents a subscribed client of a GATT session.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSubscribedClient.MaxNotificationSize">
+            <summary>
+            Gets the maximum notification size.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattSubscribedClient.Session">
+            <summary>
+            Gets the session of the subscribed client.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteOption">
+            <summary>
+             Indicates what type of write operation is to be performed.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteOption.WriteWithResponse">
+            <summary>
+            The default GATT write procedure shall be used.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteOption.WriteWithoutResponse">
+            <summary>
+             The Write Without Response procedure shall be used.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest">
+            <summary>
+            This class represents a GATT write request.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest.Respond">
+            <summary>
+            Responds to the write request.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest.RespondWithProtocolError(System.Byte)">
+            <summary>
+             Responds with a protocol error.
+            </summary>
+            <param name="protocolError">Error byte</param>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest.Offset">
+            <summary>
+            Gets the offset.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest.Option">
+            <summary>
+            Gets the write request option.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequest.Value">
+            <summary>
+            Gets the buffer value of the write request.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs">
+            <summary>
+            This class represents the event arguments for WriteRequested.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs.GetRequest">
+            <summary>
+            Gets the write request.
+            </summary>
+            <returns>Returns a write request.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs.Session">
+            <summary>
+             Gets the session.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp">
+            <summary>
+            Interface for Bluetooth Serial Profile (SPP)
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.RxDataEventHandler">
+            <summary>
+            Receive data delegate.
+            </summary>
+            <param name="sender"></param>
+            <param name="ReadDataEventArgs"></param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.ConnectedEventHandler">
+            <summary>
+            Connected client status changed delegate.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.ReceivedData">
+            <summary>
+            Received data event. Event is fired when data is received.
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.ConnectedEvent">
+            <summary>
+            Connected client status changed event, Fired when client connects or disconnects.
+            Check isConnected property for current status.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.IsConnected">
+            <summary>
+            Returns true is a client is connected.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.Start(System.String)">
+            <summary>
+            Start the SPP advertising.
+            </summary>
+            <param name="deviceName">Device name to use in advert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.Stop">
+            <summary>
+            Stop advertising and close down.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.SendBytes(System.Byte[])">
+            <summary>
+            Send bytes to connected client.
+            </summary>
+            <param name="data">Byte[] to send.</param>
+            <returns>True if send was successful.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.IBluetoothSpp.SendString(System.String)">
+            <summary>
+            Send string to connected client.
+            </summary>
+            <param name="data">String data to send.</param>
+            <returns>True if send was successful.</returns>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Spp.NordicSpp">
+            <summary>
+            Implementation of Nordic Serial SPP profile.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Spp.NordicSpp.IsConnected">
+            <summary>
+            Return true id client connected
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.Spp.NordicSpp.ReceivedData">
+            <summary>
+            Event handler for receiving data
+            </summary>
+        </member>
+        <member name="E:nanoFramework.Device.Bluetooth.Spp.NordicSpp.ConnectedEvent">
+            <summary>
+            Event Handler for connection state change
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.#ctor">
+            <summary>
+            Constructor for Nordic serial SPP profile
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.Start(System.String)">
+            <summary>
+            Start device advertising
+            </summary>
+            <param name="deviceName">Device name for Advertising</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.Stop">
+            <summary>
+            Stop Nordic SPP UART device
+            Stop advertising.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.SendBytes(System.Byte[])">
+            <summary>
+            Send data bytes to connected client
+            </summary>
+            <param name="data">byte array to send</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.SendString(System.String)">
+            <summary>
+            Send data as string
+            </summary>
+            <param name="data">string to send</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Spp.NordicSpp.RxCharacteristic_WriteRequested(nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic,nanoFramework.Device.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs)">
+            <summary>
+            Event handler for Received data
+            </summary>
+            <param name="sender"></param>
+            <param name="WriteRequestEventArgs"></param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Spp.SppReceivedDataEventArgs">
+            <summary>
+            Event argument for SPP receive data events
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Spp.SppReceivedDataEventArgs.DataBytes">
+            <summary>
+            Received data as byte[].
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Spp.SppReceivedDataEventArgs.DataString">
+            <summary>
+            Received data as string.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Buffer">
+            <summary>
+            Represents a referenced array of bytes used by byte stream read and write interfaces.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Buffer._buffer">
+            <summary>
+            Byte buffer
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Buffer._length">
+            <summary>
+            Length of data in byte buffer.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Buffer.#ctor(System.UInt32)">
+            <summary>
+            Constructor for Buffer with a specific capacity.
+            </summary>
+            <param name="capacity"></param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Buffer.#ctor(System.Byte[])">
+            <summary>
+            Constructor for Buffer with an external byte buffer.
+            </summary>
+            <param name="array"></param>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Buffer.Capacity">
+            <summary>
+            Gets the maximum number of bytes that the buffer can hold.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.Buffer.Length">
+            <summary>
+            Gets the number of bytes currently in use in the buffer.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Buffer.EnsureCapacity(System.UInt32)">
+            <summary>
+            Ensure buffer has a certain capacity. If to small it will be expanded
+            </summary>
+            <param name="newCapacity">New capacity required</param>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.DataReader">
+            <summary>
+            Reads data from an input buffer.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.FromBuffer(nanoFramework.Device.Bluetooth.Buffer)">
+            <summary>
+            Creates a new instance of the data reader with data from the specified buffer.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            <returns>The data reader.</returns>
+        </member>
+        <member name="P:nanoFramework.Device.Bluetooth.DataReader.UnconsumedBufferLength">
+            <summary>
+            Gets the size of the buffer that has not been read.
+            </summary>
+            <value>
+            The size of the buffer that has not been read, in bytes.
+            </value>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadBoolean">
+            <summary>
+            Reads a Boolean value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadBuffer(System.UInt32)">
+            <summary>
+            Reads a buffer from the input buffer.
+            </summary>
+            <param name="length">The length of the buffer, in bytes.</param>
+            <returns>The buffer.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadByte">
+            <summary>
+            Reads a byte value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadBytes(System.Byte[])">
+            <summary>
+            Reads an array of byte values from the input buffer.
+            </summary>
+            <param name="value">The array of values.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadDateTime">
+            <summary>
+            Reads a date and time value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadDouble">
+            <summary>
+            Reads a floating-point value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadGuid">
+            <summary>
+            Reads a GUID value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadInt16">
+            <summary>
+            Reads a 16-bit integer value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadInt32">
+            <summary>
+            Reads a 32-bit integer value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadInt64">
+            <summary>
+            Reads a 64-bit integer value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadSingle">
+            <summary>
+            Reads a floating-point value from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadString(System.UInt32)">
+            <summary>
+            Reads a string value from the input buffer.
+            </summary>
+            <param name="codeUnitCount">The length of the string.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadTimeSpan">
+            <summary>
+            Reads a time interval from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadUInt16">
+            <summary>
+            Reads a 16-bit unsigned integer from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadUInt32">
+            <summary>
+            Reads a 32-bit unsigned integer from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.ReadUInt64">
+            <summary>
+            Reads a 64-bit unsigned integer from the input buffer.
+            </summary>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.IncreaseReadPosition(System.Int32)">
+            <summary>
+            Increases the backing buffer read position.
+            </summary>
+            <param name="count">How many bytes to read from the backing buffer.</param>
+            <returns>
+            The current buffer position before increasing it by <para>count</para>.
+            </returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataReader.CheckReadPosition">
+            <summary>
+            Checks current read position and resets the backing buffer if all bytes have been read
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.DataWriter">
+            <summary>
+            Writes data to an output stream.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.#ctor">
+            <summary>
+            Creates and initializes a new instance of the data writer.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.MeasureString(System.String)">
+            <summary>
+            Gets the size of a string.
+            </summary>
+            <param name="value">The string.</param>
+            <returns>The size of the string, in bytes.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteBoolean(System.Boolean)">
+            <summary>
+            Writes a Boolean value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteBuffer(nanoFramework.Device.Bluetooth.Buffer)">
+            <summary>
+            Writes a number of bytes from a buffer.
+            </summary>
+            <param name="buffer">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteBuffer(nanoFramework.Device.Bluetooth.Buffer,System.UInt32,System.UInt32)">
+            <summary>
+            Writes a range of bytes from a buffer to the output stream.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            <param name="start">The starting byte to be written.</param>
+            <param name="count">The number of bytes to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteByte(System.Byte)">
+            <summary>
+            Writes a byte value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteBytes(System.Byte[])">
+            <summary>
+            Writes an array of byte values to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteDateTime(System.DateTime)">
+            <summary>
+            Writes a date and time value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteDouble(System.Double)">
+            <summary>
+            Writes a floating-point value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteGuid(System.Guid)">
+            <summary>
+            Writes a GUID value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteInt16(System.Int16)">
+            <summary>
+            Writes a 16-bit integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteInt32(System.Int32)">
+            <summary>
+            Writes a 32-bit integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteInt64(System.Int64)">
+            <summary>
+            Writes a 64-bit integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteSingle(System.Single)">
+            <summary>
+            Write a floating-point value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteString(System.String)">
+            <summary>
+            Writes a string value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+            <returns>The length of the string.</returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteTimeSpan(System.TimeSpan)">
+            <summary>
+            Writes a time interval value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteUInt16(System.UInt16)">
+            <summary>
+            Writes a 16-bit unsigned integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteUInt32(System.UInt32)">
+            <summary>
+            Writes a 32-bit unsigned integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.WriteUInt64(System.UInt64)">
+            <summary>
+            Writes a 64-bit unsigned integer value to the output stream.
+            </summary>
+            <param name="value">The value to write.</param>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.DataWriter.DetachBuffer">
+            <summary>
+            Returns byte buffer of data in buffer
+            </summary>
+            <returns>Buffer</returns>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Utilities">
+            <summary>
+            Bluetooth library utilities
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid">
+            <summary>
+            This enum assists in finding a string representation of a BT SIG assigned value for Descriptor UUIDs
+            Reference: https://developer.bluetooth.org/gatt/descriptors/Pages/DescriptorsHomePage.aspx
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.CharacteristicExtendedProperties">
+            <summary>
+            CharacteristicExtendedProperties
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.CharacteristicUserDescription">
+            <summary>
+            CharacteristicUserDescription
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ClientCharacteristicConfiguration">
+            <summary>
+            ClientCharacteristicConfiguration
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ServerCharacteristicConfiguration">
+            <summary>
+            ServerCharacteristicConfiguration
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.CharacteristicPresentationFormat">
+            <summary>
+            CharacteristicPresentationFormat
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.CharacteristicAggregateFormat">
+            <summary>
+            CharacteristicAggregateFormat
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ValidRange">
+            <summary>
+            ValidRange
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ExternalReportReference">
+            <summary>
+            ExternalReportReference
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ReportReference">
+            <summary>
+            ReportReference
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.NumberDigitals">
+            <summary>
+            Number of Digitals 
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.ValueTriggerSetting">
+            <summary>
+            Value trigger settings
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.EssConfiguration">
+            <summary>
+            Environmental Sensing Configuration
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.EssMeasurement">
+            <summary>
+            Environmental Sensing Measurement
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.EssTriggerSetting">
+            <summary>
+            Environmental Sensing Trigger Setting
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Device.Bluetooth.Utilities.GattNativeDescriptorUuid.TimeTriggerSetting">
+            <summary>
+            Time Trigger Setting 
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Utilities.ConvertUuidToShortId(System.Guid)">
+            <summary>
+             Converts from standard 128bit UUID to the assigned 16bit UUID. Makes it easy to compare services
+             that devices expose to the standard list.
+            </summary>
+            <param name="uuid">UUID to convert to 16 bit short code Uuid</param>
+            <returns></returns>
+        </member>
+        <member name="M:nanoFramework.Device.Bluetooth.Utilities.CreateUuidFromShortCode(System.UInt16)">
+            <summary>
+            Create a Uuid/Guid from a short Bluetooth SIG short UUID
+            </summary>
+            <param name="uuid16">Bluetooth Short code UUID</param>
+            <returns>A Guid using Bluetooth SIG UUID</returns>
+        </member>
+    </members>
+</doc>

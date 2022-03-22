@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nanoFramework.Runtime.Native</name>
+    </assembly>
+    <members>
+        <member name="T:nanoFramework.Runtime.Native.RebootEventHandler">
+            <summary>
+            The event handler delegate for the <see cref="E:nanoFramework.Runtime.Native.Power.OnRebootEvent"/> event.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.Power">
+            <summary>
+            Provides access to power management functionalities on target device.
+            </summary>
+            <remarks>
+            This API is a general one common to all devices. There could be available target specific APIs providing other methods.
+            </remarks>
+        </member>
+        <member name="E:nanoFramework.Runtime.Native.Power.OnRebootEvent">
+            <summary>
+            This event notifies listeners prior to a device reboot.  The event handlers may have an execution
+            constraint placed on them by the caller of the Reboot method.  Therefore, it is recommended that the event handlers
+            be short atomic operations.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.Power.RebootDevice">
+            <summary>
+            The RebootDevice method enables the caller to force a reboot of the device.
+            This method raises the OnRebootEvent.
+            </summary>
+            <remarks>
+            If there are any handlers subscribing <see cref="E:nanoFramework.Runtime.Native.Power.OnRebootEvent"/> the reboot will happen only after all handlers complete their execution, no matter the time that takes.
+            In case the developer want's to set a timeout for those to complete, use the alternative <see cref="M:nanoFramework.Runtime.Native.Power.RebootDevice(System.Int32)"/> call and 
+            set an execution constrain.
+            </remarks>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.Power.RebootDevice(System.Int32)">
+            <summary>
+            The RebootDevice method enables the caller to force a reboot of the device.
+            This method raises the OnRebootEvent.
+            </summary>
+            <param name="exeConstraintTimeout">Execution constraint timeout (in milliseconds) for
+            the event handlers. If the event handlers take longer than the given value, then
+            the handlers will be aborted and the reboot will be executed.
+            </param>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.GC">
+            <summary>
+            Provides a set of methods and properties to control GC (garbage collection), a service that automatically reclaims unused computer memory.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.GC.Run(System.Boolean)">
+            <summary>
+            Runs GC (garbage collection), a service that automatically reclaims unused computer memory.
+            </summary>
+            <param name="compactHeap"><see langword="true"/> to force heap compaction; otherwise, <see langword="false"/>.</param>
+            <returns>The amount of free (unused) memory, in bytes.</returns>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.GC.EnableGCMessages(System.Boolean)">
+            <summary>
+            Specifies whether GC (garbage collection) messages are enabled.
+            </summary>
+            <param name="enable">true to enable output of messages; otherwise, false.</param>
+            <remarks>
+            Despite this method enabling the GC messages there is the possibility of those never being outputted depending on the target build options.
+            RTM builds (which remove all non essential features) are one of those situations.
+            </remarks>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.SystemInfo">
+            <summary>
+            Provides information about the system.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.Version">
+            <summary>
+            Gets a string containing version information about this system. 
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.OEMString">
+            <summary>
+            Gets a string that contains information provided by the equipment manufacturer (OEM) about this system.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.OEM">
+            <summary>
+            Gets a value that represents an original equipment manufacturer (OEM).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.Model">
+            <summary>
+            Gets a value that represents a product model.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.SKU">
+            <summary>
+            Gets a value that represents a product's stock-keeping unit (SKU).
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.TargetName">
+            <summary>
+            Gets a string that contains the target name.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.Platform">
+            <summary>
+            Gets a string that contains the platform designation.
+            </summary>
+        </member>
+        <member name="P:nanoFramework.Runtime.Native.SystemInfo.FloatingPointSupport">
+            <summary>
+            Gets a <see cref="T:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint"/> value with the information regarding the floating point support available in the target platform.
+            </summary>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint">
+            <summary>
+            Floating point options.
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint.SinglePrecisionSoftware">
+            <summary>
+            Single precision floating point software emulated.
+            </summary>
+            <remarks>
+            The target platform supports calls to <see cref="!:Math"/> using the <see cref="T:System.Single"/> overloads.
+            Calling the <see cref="T:System.Double"/> methods will throw a <see cref="T:System.NotSupportedException"/>.
+            </remarks>
+        </member>
+        <member name="F:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint.SinglePrecisionHardware">
+            <summary>
+            Single precision floating point calculation supported by hardware unit.
+            </summary>
+            <remarks>
+            The target platform supports calls to <see cref="!:Math"/> using the <see cref="T:System.Single"/> overloads.
+            Calling the <see cref="T:System.Double"/> methods will throw a <see cref="T:System.NotSupportedException"/>.
+            </remarks>
+        </member>
+        <member name="F:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint.DoublePrecisionSoftware">
+            <summary>
+            Double precision floating point software emulated.
+            </summary>
+            <remarks>
+            The target platform supports calls to <see cref="!:Math"/> using the <see cref="T:System.Double"/> overloads.
+            Calling the <see cref="T:System.Single"/> methods will throw a <see cref="T:System.NotSupportedException"/>.
+            </remarks>
+        </member>
+        <member name="F:nanoFramework.Runtime.Native.SystemInfo.FloatingPoint.DoublePrecisionHardware">
+            <summary>
+            Double precision floating point calculation supported by hardware unit.
+            </summary>
+            <remarks>
+            The target platform supports calls to <see cref="!:Math"/> using the <see cref="T:System.Double"/> overloads.
+            Calling the <see cref="T:System.Single"/> methods will throw a <see cref="T:System.NotSupportedException"/>.
+            </remarks>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.ConstraintException">
+            <summary>
+            The exception that is thrown when an action is attempted that violates a constraint. 
+            </summary>
+            <remarks>When a ConstraintException exception is caught, if the <see cref="T:nanoFramework.Runtime.Native.ExecutionConstraint"/> object that caused this exception has not been uninstalled, the catch block implementation has a small additional amount of time during which to handle the exception. 
+            If this takes too long, the exception is re-thrown automatically.
+            </remarks>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.ExecutionConstraint">
+            <summary>
+            Provides a method to require a thread to complete an operation within specific constraints. 
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.ExecutionConstraint.Install(System.Int32,System.Int32)">
+            <summary>
+            Creates a sub-thread within the calling thread, containing a constraint that requires the calling thread to complete an operation within a specified time period and at a specified priority level. 
+            </summary>
+            <param name="timeoutMilliseconds">The number of milliseconds before a <see cref="T:nanoFramework.Runtime.Native.ConstraintException"/> exception is thrown. Note that the value -1 in this parameter indicates that the current constraint exception is to be uninstalled.</param>
+            <param name="priority">The priority level of the calling thread.</param>
+            <remarks>If the specified timeout expires before the thread has completed the operation, a <see cref="T:nanoFramework.Runtime.Native.ConstraintException"/> exception is thrown. Note that the time that was set in the timeout parameter is standard clock time, not thread execution time.
+            The priority level can only be raised for threads that already have a priority level higher than 0 (zero).
+            </remarks>
+            <exception cref="T:System.Exception">The timeout parameter is less than -1.</exception>
+            <exception cref="T:System.Exception">The system is unable to identify the thread that is installing this constraint.</exception>
+            <exception cref="T:System.Exception">The thread installing this constraint does not own the sub-thread that the constraint applies to.</exception>
+        </member>
+        <member name="T:nanoFramework.Runtime.Native.Rtc">
+            <summary>
+            Provides a set of methods that help developers to manage the RTC (Real Time Clock) on the target device.
+            </summary>
+        </member>
+        <member name="M:nanoFramework.Runtime.Native.Rtc.SetSystemTime(System.DateTime)">
+            <summary>
+            Sets the current system time and date.
+            </summary>
+            <param name="time"><see cref="T:System.DateTime"/> structure that contains the new system date and time.</param>
+            <returns>If the function succeeds, the return value is true.</returns>
+            <remarks>This method is specific to nanoFramework. The actual availability of the resulting feature depends on the availability on target platform that's running the nanoCLR.</remarks>
+        </member>
+        <member name="T:System.Environment">
+            <summary>
+            Provides information about, and means to manipulate, the current environment and platform. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="P:System.Environment.TickCount64">
+            <summary>
+            Gets the number of milliseconds elapsed since the system started.
+            </summary>
+            <value>The elapsed milliseconds since the system started.</value>
+        </member>
+    </members>
+</doc>

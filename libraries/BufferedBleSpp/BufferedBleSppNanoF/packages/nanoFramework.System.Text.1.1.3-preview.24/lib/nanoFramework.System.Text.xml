@@ -1,0 +1,442 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>nanoFramework.System.Text</name>
+    </assembly>
+    <members>
+        <member name="T:System.Text.Decoder">
+            <summary>
+            Converts a sequence of encoded bytes into a set of characters.
+            </summary>
+        </member>
+        <member name="M:System.Text.Decoder.Convert(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32,System.Int32,System.Boolean,System.Int32@,System.Int32@,System.Boolean@)">
+            <summary>
+            Converts an array of encoded bytes to UTF-16 encoded characters and stores the result in a character array.
+            </summary>
+            <param name="bytes">A byte array to convert.</param>
+            <param name="byteIndex">The first element of bytes to convert.</param>
+            <param name="byteCount">The number of elements of bytes to convert.</param>
+            <param name="chars">An array to store the converted characters.</param>
+            <param name="charIndex">The first element of chars in which data is stored.</param>
+            <param name="charCount">The maximum number of elements of chars to use in the conversion.</param>
+            <param name="flush">true to indicate that no further data is to be converted; otherwise, false.</param>
+            <param name="bytesUsed">When this method returns, contains the number of bytes that were used in the conversion. This parameter is passed uninitialized.</param>
+            <param name="charsUsed">When this method returns, contains the number of characters from chars that were produced by the conversion. This parameter is passed uninitialized.</param>
+            <param name="completed">When this method returns, contains true if all the characters specified by byteCount were converted; otherwise, false. This parameter is passed uninitialized.</param>
+        </member>
+        <member name="T:System.Text.Encoding">
+            <summary>
+            Represents a character encoding.
+            </summary>
+        </member>
+        <member name="M:System.Text.Encoding.GetBytes(System.String)">
+            <summary>
+            When overridden in a derived class, encodes all the characters in the specified string into a sequence of bytes.
+            </summary>
+            <param name="s">The string containing the characters to encode.</param>
+            <returns>A byte array containing the results of encoding the specified set of characters.</returns>
+        </member>
+        <member name="M:System.Text.Encoding.GetBytes(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            When overridden in a derived class, encodes a set of characters from the specified string into the specified byte array.
+            </summary>
+            <param name="s">The string containing the set of characters to encode.</param>
+            <param name="charIndex">The index of the first character to encode.</param>
+            <param name="charCount">The number of characters to encode.</param>
+            <param name="bytes">The byte array to contain the resulting sequence of bytes.</param>
+            <param name="byteIndex">The index at which to start writing the resulting sequence of bytes.</param>
+            <returns>The actual number of bytes written into bytes.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:System.Text.Encoding.GetChars(System.Byte[])">
+            <summary>
+            When overridden in a derived class, decodes all the bytes in the specified byte array into a set of characters.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <returns>A character array containing the results of decoding the specified sequence of bytes.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:System.Text.Encoding.GetChars(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, decodes a sequence of bytes from the specified byte array into a set of characters.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <param name="byteIndex">The index of the first byte to decode.</param>
+            <param name="byteCount">The number of bytes to decode.</param>
+            <returns>A character array containing the results of decoding the specified sequence of bytes.</returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:System.Text.Encoding.GetString(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            When overridden in a derived class, decodes a sequence of bytes from the specified byte array into a <see cref="T:System.String"/>.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <param name="index">The index of the first byte to decode.</param>
+            <param name="count">The number of bytes to decode.</param>
+            <returns>A <see cref="T:System.String"/> that contains the results of decoding the specified sequence of bytes.</returns>
+        </member>
+        <member name="M:System.Text.Encoding.GetDecoder">
+            <summary>
+            When overridden in a derived class, obtains a decoder that converts an encoded sequence of bytes into a sequence of characters.
+            </summary>
+            <returns>A Decoder that converts an encoded sequence of bytes into a sequence of characters.</returns>
+        </member>
+        <member name="P:System.Text.Encoding.UTF8">
+            <summary>
+            Gets an encoding for the UTF-8 format.
+            </summary>
+            <value> An encoding for the UTF-8 format. </value>
+        </member>
+        <member name="T:System.Text.StringBuilder">
+            <summary>
+            A Micro Framework port of the Full Framework StringBuilder. Contributed by Julius Friedman.
+            Represents a mutable string of characters. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="P:System.Text.StringBuilder.MaxCapacity">
+            <summary>
+            Gets the maximum capacity of this instance.
+            </summary>
+            <value>The maximum number of characters this instance can hold.</value>
+        </member>
+        <member name="P:System.Text.StringBuilder.Item(System.Int32)">
+            <summary>
+            Gets or sets the character at the specified character position in this instance.
+            </summary>
+            <param name="index">The position of the character.</param>
+            <returns>The Unicode character at position index.</returns>
+        </member>
+        <member name="P:System.Text.StringBuilder.Capacity">
+            <summary>
+            Gets or sets the maximum number of characters that can be contained in the memory allocated by the current instance.
+            </summary>
+            <value>
+            The maximum number of characters that can be contained in the memory allocated by the current instance. Its value can range from Length to MaxCapacity.
+            </value>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:System.Text.StringBuilder.Length">
+            <summary>
+            Gets or sets the length of the current StringBuilder object.
+            </summary>
+            <value>The length of this instance.</value>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the StringBuilder class from the specified substring and capacity. 
+            </summary>
+            <param name="value">The string that contains the substring used to initialize the value of this instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</param>
+            <param name="startIndex">The position within value where the substring begins.</param>
+            <param name="length">The number of characters in the substring.</param>
+            <param name="capacity">The suggested starting size of the StringBuilder.</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the StringBuilder class using the specified string and capacity.
+            </summary>
+            <param name="value">The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</param>
+            <param name="capacity">The suggested starting size of the StringBuilder.</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the StringBuilder class that starts with a specified capacity and can grow to a specified maximum. 
+            </summary>
+            <param name="capacity">The suggested starting size of the StringBuilder.</param>
+            <param name="maxCapacity">The maximum number of characters the current string can contain.</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the StringBuilder class using the specified capacity. 
+            </summary>
+            <param name="capacity">The suggested starting size of this instance.</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the StringBuilder class using the specified string. 
+            </summary>
+            <param name="value">The string used to initialize the value of the instance. If value is null, the new StringBuilder will contain the empty string (that is, it contains Empty).</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the StringBuilder class. 
+            </summary>
+        </member>
+        <member name="M:System.Text.StringBuilder.Clear">
+            <summary>
+            Removes all characters from the current StringBuilder instance. 
+            </summary>
+            <returns>An object whose Length is 0 (zero).</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Boolean)">
+            <summary>
+            Appends the string representation of a specified Boolean value to this instance. 
+            </summary>
+            <param name="value">The Boolean value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Byte)">
+            <summary>
+            Appends the string representation of a specified 8-bit unsigned integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Char)">
+            <summary>
+            Appends the string representation of a specified Unicode character to this instance. 
+            </summary>
+            <param name="value">The UTF-16-encoded code unit to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Double)">
+            <summary>
+            Appends the string representation of a specified double-precision floating-point number to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Int16)">
+            <summary>
+            Appends the string representation of a specified 16-bit signed integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Char[])">
+            <summary>
+            Appends the string representation of the Unicode characters in a specified array to this instance. 
+            </summary>
+            <param name="value">The array of characters to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Int32)">
+            <summary>
+            Appends the string representation of a specified 32-bit signed integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Int64)">
+            <summary>
+            Appends the string representation of a specified 64-bit unsigned integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Object)">
+            <summary>
+            Appends the string representation of a specified object to this instance. 
+            </summary>
+            <param name="value">The object to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.String)">
+            <summary>
+            Appends a copy of the specified string to this instance.
+            </summary>
+            <param name="value">The string to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.SByte)">
+            <summary>
+            Appends the string representation of a specified 8-bit signed integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Single)">
+            <summary>
+            Appends the string representation of a specified double-precision floating-point number to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.UInt16)">
+            <summary>
+            Appends the string representation of a specified 16-bit unsigned integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.UInt32)">
+            <summary>
+            Appends the string representation of a specified 32-bit unsigned integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.UInt64)">
+            <summary>
+            Appends the string representation of a specified 64-bit unsigned integer to this instance. 
+            </summary>
+            <param name="value">The value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.String,System.Int32,System.Int32)">
+            <summary>
+            Appends a copy of a specified substring to this instance. 
+            </summary>
+            <param name="value">The string that contains the substring to append.</param>
+            <param name="startIndex">The starting position of the substring within value.</param>
+            <param name="count">The number of characters in value to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Appends the string representation of a specified subarray of Unicode characters to this instance
+            </summary>
+            <param name="value">A character array. </param>
+            <param name="startIndex">The starting position in value. </param>
+            <param name="charCount">The number of characters to append.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Append(System.Char,System.Int32)">
+            <summary>
+            Appends a specified number of copies of the string representation of a Unicode character to this instance. 
+            </summary>
+            <param name="value">The character to append.</param>
+            <param name="repeatCount">The number of times to append value.</param>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes the specified range of characters from this instance. 
+            </summary>
+            <param name="startIndex">The zero-based position in this instance where removal begins.</param>
+            <param name="length">The number of characters to remove.</param>
+            <returns>A reference to this instance after the excise operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.ToString">
+            <summary>
+            Converts the value of this instance to a String. (Overrides Object.ToString().)
+            </summary>
+            <returns>A string whose value is the same as this instance.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.ToString(System.Int32,System.Int32)">
+            <summary>
+            Converts the value of a substring of this instance to a String. 
+            </summary>
+            <param name="startIndex">The starting position of the substring in this instance.</param>
+            <param name="length">The length of the substring.</param>
+            <returns>A string whose value is the same as the specified substring of this instance.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Insert(System.Int32,System.String,System.Int32)">
+            <summary>
+            Inserts one or more copies of a specified string into this instance at the specified character position. 
+            </summary>
+            <param name="index">The position in this instance where insertion begins.</param>
+            <param name="value">The string to insert.</param>
+            <param name="count">The number of times to insert value.</param>
+            <returns>A reference to this instance after insertion has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Insert(System.Int32,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Inserts the string representation of a specified subarray of Unicode characters into this instance at the specified character position. 
+            </summary>
+            <param name="index">The position in this instance where insertion begins.</param>
+            <param name="value">A character array.</param>
+            <param name="startIndex">The starting index within value.</param>
+            <param name="charCount">The number of characters to insert.</param>
+            <returns>A reference to this instance after the insert operation has completed.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Replace(System.Char,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Replaces, within a substring of this instance, all occurrences of a specified character with another specified character. 
+            </summary>
+            <param name="oldChar">The character to replace. </param>
+            <param name="newChar">The character that replaces oldChar. </param>
+            <param name="startIndex">The position in this instance where the substring begins. </param>
+            <param name="count">The length of the substring. </param>
+            <returns>A reference to this instance with oldChar replaced by newChar in the range from startIndex to startIndex + count -1.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Replace(System.Char,System.Char)">
+            <summary>
+            Replaces all occurrences of a specified character in this instance with another specified character. 
+            </summary>
+            <param name="oldChar">The character to replace.</param>
+            <param name="newChar">The character that replaces oldChar.</param>
+            <returns>A reference to this instance with oldChar replaced by newChar.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Replace(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Replaces, within a substring of this instance, all occurrences of a specified string with another specified string. 
+            </summary>
+            <param name="oldValue">The string to replace.</param>
+            <param name="newValue">The string that replaces oldValue, or null.</param>
+            <param name="startIndex">The position in this instance where the substring begins.</param>
+            <param name="count">The length of the substring.</param>
+            <returns>A reference to this instance with all instances of oldValue replaced by newValue in the range from startIndex to startIndex + count - 1.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.Replace(System.String,System.String)">
+            <summary>
+            Replaces all occurrences of a specified string in this instance with another specified string. 
+            </summary>
+            <param name="oldValue">The string to replace.</param>
+            <param name="newValue">The string that replaces oldValue, or null.</param>
+            <returns>A reference to this instance with all instances of oldValue replaced by newValue.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilder.AppendLine(System.String)">
+            <summary>
+            Appends a copy of the specified string followed by the default line terminator to the end of the current StringBuilder object.
+            </summary>
+            <param name="str">A reference to this instance after the append operation has completed.</param>
+        </member>
+        <member name="M:System.Text.StringBuilder.AppendLine">
+            <summary>
+            Appends the default line terminator to the end of the current StringBuilder object.
+            </summary>
+            <returns>A reference to this instance after the append operation has completed.</returns>
+        </member>
+        <member name="T:System.Text.UTF8Encoding">
+            <summary>
+            Represents a UTF-8 encoding of Unicode characters.
+            </summary>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.#ctor">
+            <summary>
+            Represents a UTF-8 encoding of Unicode characters.
+            </summary>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.GetBytes(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.GetBytes(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            Encodes a set of characters from the specified <see cref="T:System.String"/> into the specified byte array.
+            </summary>
+            <param name="s">The <see cref="T:System.String"/> containing the set of characters to encode.</param>
+            <param name="charIndex">The index of the first character to encode.</param>
+            <param name="charCount">The number of characters to encode.</param>
+            <param name="bytes">The byte array to contain the resulting sequence of bytes.</param>
+            <param name="byteIndex">The index at which to start writing the resulting sequence of bytes.</param>
+            <returns>The actual number of bytes written into <paramref name="bytes"/>.</returns>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.GetChars(System.Byte[])">
+            <summary>
+            Decodes a sequence of bytes from the specified byte array into a set of characters.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <returns>The actual number of characters returned.</returns>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.GetChars(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Decodes a sequence of bytes from the specified byte array into a set of characters.
+            </summary>
+            <param name="bytes">The byte array containing the sequence of bytes to decode.</param>
+            <param name="byteIndex">The index of the first byte to decode.</param>
+            <param name="byteCount">The number of bytes to decode.</param>
+            <returns>The actual number of characters returned.</returns>
+        </member>
+        <member name="M:System.Text.UTF8Encoding.GetDecoder">
+            <summary>
+            Obtains a decoder that converts a UTF-8 encoded sequence of bytes into a sequence of Unicode characters.
+            </summary>
+            <returns>A decoder that converts a UTF-8 encoded sequence of bytes into a sequence of Unicode characters.</returns>
+        </member>
+    </members>
+</doc>
