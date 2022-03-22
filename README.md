@@ -53,7 +53,7 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
  </tr>
  <tr>
   <td><a href="libraries/nanoFramework.OpenThread">Library to work with the 6lowpan Thread network</a></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><a href="libraries/BufferedBleSpp</a>A Buffered BLE SPP server with Xamarin Forms client sample</td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
   <td><!--<a href="Utility/util3">Utility Three</a>--></td>
  </tr>
