@@ -12,7 +12,7 @@ This sample also demonstrates BufferBleSpp's use in a Xamarin Forms mobile clien
 
 The nanoFramework project code is in folder BufferedBleSppNanoF.
 
-The Xamarin Forms project code is folder BufferedBleSppXam.
+The Xamarin Forms project code is in folder BufferedBleSppXam.
 
 There are two objects, both called BufferedBleSpp, one for each platform.
 
