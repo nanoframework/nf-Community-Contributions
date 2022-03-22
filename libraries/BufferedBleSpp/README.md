@@ -10,17 +10,20 @@ Its been tested on a ESP32 that was able to load the ESP32_BLE_REV3 firmware.
 
 This sample also demonstrates BufferBleSpp's use in a Xamarin Forms mobile client environment.
 
-The nanoFramework project is provided as a zipped file [BufferedBleSppNanoF.zip].
+The nanoFramework project code is in folder BufferedBleSppNanoF.
 
-The Xamarin Forms project is provided as a zipped file [BufferedBleSppXam.zip].
+The Xamarin Forms project code is folder BufferedBleSppXam.
 
-There are two objects, both called BufferedBleSpp, one for each platform:
+There are two objects, both called BufferedBleSpp, one for each platform.
 
-Sample Xamarin Forms code demonstrating its usage:
-```	
+Sample Xamarin Forms code demonstrating its usage
+
+```csharp	
 messageLabel.Text = "";
 var message = "";
-for (int i = 0; i < 10000; i++) message += " " + i.ToString();
+for (int i = 0; i < 10000; i++) {
+	message += " " + i.ToString();
+}
 var messageArray = Encoding.UTF8.GetBytes(message);
 progressBar.Progress = 0.0f;
 var returnedData = await spp.SendMessage(messageArray, new CancellationTokenSource(30000).Token, (progress) => { 
@@ -30,8 +33,9 @@ messageLabel.Text = "Receive success";
 Debug.WriteLine(Encoding.UTF8.GetString(returnedData));
 ```
 
-Sample nanoFramework code demonstrating its usage:
-```
+Sample nanoFramework code demonstrating its usage
+
+```csharp
 private static byte[] Spp_ReceivedData(BufferedBleSpp sender, byte[] readDataEventArgs)
 {
     string message = System.Text.UTF8Encoding.UTF8.GetString(readDataEventArgs, 0, readDataEventArgs.Length);
@@ -44,33 +48,33 @@ private static byte[] Spp_ReceivedData(BufferedBleSpp sender, byte[] readDataEve
 }
 ```
 
-On the nanoFramework side the following needs to be done in preparation:
+On the nanoFramework side the following needs to be done in preparation
 
-    Plugins to be loaded:
+    Nugets to be loaded
 
         nanoFramework.Device.Bluetooth
         nanoFramework.System.IO.Streams
         nanoFramework.System.Math
 
-    The target needs to be updated to contain the latest BLE libraries:
-
+    The target needs to be updated to contain the latest BLE libraries
+    
         nanoff --serialport COMx  --target ESP32_BLE_REV3 --preview --update
 	
-On the Xamarin Forms the following needs to be done in preparation:
+On the Xamarin Forms the following needs to be done in preparation
 
-    Plugins	to be loaded:
-
+    Nugets to be loaded
         Plugin.BLE (xabre/xamarin-bluetooth-le) https://github.com/xabre/xamarin-bluetooth-le
-
-    Android manifest need addition: 
- 
+	
+    The Android manifest need the following additions
+ ```xml
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-   
-    On iOS you must add the following keys to your Info.plist: 
- 
+  ``` 
+    On iOS you must add the following keys to your Info.plist 
+
+ ```xml 
     <key>UIBackgroundModes</key>
     <array>
       <!--for connecting to devices (client)-->
@@ -87,3 +91,4 @@ On the Xamarin Forms the following needs to be done in preparation:
     <!--Description of the Bluetooth request message (required on iOS 13)-->
     <key>NSBluetoothAlwaysUsageDescription</key>
     <string>YOUR CUSTOM MESSAGE</string>
+  ```
