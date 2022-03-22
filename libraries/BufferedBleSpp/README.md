@@ -16,7 +16,7 @@ The Xamarin Forms project code is in folder BufferedBleSppXam.
 
 There are two objects, both called BufferedBleSpp, one for each platform.
 
-Sample Xamarin Forms code demonstrating its usage
+Sample Xamarin Forms code demonstrating its usage.
 
 ```csharp	
 messageLabel.Text = "";
@@ -33,7 +33,7 @@ messageLabel.Text = "Receive success";
 Debug.WriteLine(Encoding.UTF8.GetString(returnedData));
 ```
 
-Sample nanoFramework code demonstrating its usage
+Sample nanoFramework code demonstrating its usage.
 
 ```csharp
 private static byte[] Spp_ReceivedData(BufferedBleSpp sender, byte[] readDataEventArgs)
@@ -48,31 +48,32 @@ private static byte[] Spp_ReceivedData(BufferedBleSpp sender, byte[] readDataEve
 }
 ```
 
-On the nanoFramework side the following needs to be done in preparation
+On the nanoFramework side the following needs to be done in preparation.
 
-    Nugets to be loaded
+    Nugets to be loaded.
 
         nanoFramework.Device.Bluetooth
         nanoFramework.System.IO.Streams
         nanoFramework.System.Math
 
-    The target needs to be updated to contain the latest BLE libraries
+    The target needs to be updated to contain the latest BLE libraries.
     
         nanoff --serialport COMx  --target ESP32_BLE_REV3 --preview --update
 	
-On the Xamarin Forms the following needs to be done in preparation
+On the Xamarin Forms the following needs to be done in preparation.
 
-    Nugets to be loaded
+    Nugets to be loaded.
+    
         Plugin.BLE (xabre/xamarin-bluetooth-le) https://github.com/xabre/xamarin-bluetooth-le
 	
-    The Android manifest need the following additions
+    The Android manifest need the following additions.
  ```xml
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
   ``` 
-    On iOS you must add the following keys to your Info.plist 
+    On iOS you must add the following keys to your Info.plist. 
 
  ```xml 
     <key>UIBackgroundModes</key>
