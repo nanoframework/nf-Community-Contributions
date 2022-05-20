@@ -26,7 +26,7 @@ jobs:
 ##############################
 - job: Get_Build_Options
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - checkout: self
@@ -60,7 +60,7 @@ jobs:
   - Get_Build_Options
 
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   variables:
     major: 1
