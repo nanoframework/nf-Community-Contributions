@@ -1,5 +1,7 @@
 # GpiController extension for STM32 targets
 
+## ⚠️ This extension is obsolete and no longer used with current firmware versions. ⚠️
+
 This adds the extension `OpenStm32Pin(portName, pin)` to `GpioController` allowing the developer to conveniently use the standard STM naming for GPIO ports.
 
 Like this:

@@ -1,5 +1,7 @@
 ﻿# ESP32 WS2812 Driver
 
+## ⚠️ This driver is potentially superseded with [nanoFramework.IoT.Device.Ws28xx](https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Ws28xx). ⚠️
+
 A C# helper class that helps you control pixels on WS2812 addressable RGB devices with the nanoFramework platform and ESP32.
 
 The WS2812.TestApp that produces a rainbow effect on a M5Stack ATOM.
