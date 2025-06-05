@@ -1,4 +1,7 @@
 # nanoFramework Web Server
+
+## ⚠️ This sample is potentially superseded with the [Webserver Sample](https://github.com/nanoframework/Samples/tree/main/samples/Webserver). ⚠️
+
 ESP32 Web Server for nanoFramework
 
 This is a simple but powerful web server that allows the user to create a web server and application on one ESP board. In the past most applications used two chips one for the application and one to connect to the network. 
@@ -9,6 +12,4 @@ The web server runs on it's own thread so it is not blocked by the request proce
 
 The server is used by typing in the web server's assigned IP address into any web browser.
 
-Sourc Code: https://github.com/Dweaver309/nanoFramework-Web-Server
-
-
+Source Code: https://github.com/Dweaver309/nanoFramework-Web-Server

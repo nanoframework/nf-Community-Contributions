@@ -1,4 +1,7 @@
 # Driver for DS18B20
+
+## ⚠️ This driver is potentially superseded with [nanoFramework.IoT.Device.Ds18b20](https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Ds18b20). ⚠️
+
 NanoFramework 18B20 driver. A simplified version of nF-ESP32-One-Wire
 
 Source code [Here!](https://github.com/up-streamer/nF_18B20)
