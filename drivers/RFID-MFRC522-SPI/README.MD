@@ -1,5 +1,7 @@
 ﻿# RFID MFRC522 driver support for nanoFramework
 
+## ⚠️ This driver is potentially superseded with [nanoFramework.IoT.Device.Mfrc522](https://github.com/nanoframework/nanoFramework.IoT.Device/tree/develop/devices/Mfrc522). ⚠️
+
 This drive is a port of [Bauland's](https://github.com/bauland/TinyClrLib/tree/master/Modules/Others/MfRc522) nice work for TinyClrLib.  
 Added basic ability to write on Mifare1k and MifareUltraLight cards.
 

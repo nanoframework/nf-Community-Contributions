@@ -6,7 +6,7 @@
 <!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
 - [ ] I've placed my contribution in the appropriate section.
 - [ ] I've choosen a good name for it and I've checked the repo for duplicates.
-- [ ] I've added a readme.md following the provided template (TBD). 
+- [ ] I've added a README.md following the provided template (TBD). 
 - [ ] My code follows the code style of this project.
 - [ ] I've tidy my files inside the contribution folder.
 - [ ] I've edited the repo README.md to include the mention and link to my contribution. It's under the proper section and the link is correct.
