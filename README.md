@@ -90,7 +90,7 @@ If you have a contribution, fork this repo and submit a PR. One of the core team
 
 - [ ] Find a section that best fits your contribution and add it there.
 - [ ] Give it good naming. Simple, descriptive and concise.
-- [ ] Add a readme.md following the provided template (TBD). 
+- [ ] Add a README.md following the provided template (TBD). 
 - [ ] Tidy your code and files inside the contribution folder.
 - [ ] Edit the repo [README.md](README.md) to include the mention and link to your contribution. Make sure you put it under the proper section and that the link to it is correct.
 - [ ] Make sure it builds.
