@@ -20,25 +20,16 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
 
 <table>
  <tr>
-  <td><a href="drivers/OLED-SS1306-display">OLED SS1306 display</a></td>
   <td><a href="drivers/EEPROM-24LC256">24LC256 EEPROM</a></td>
-  <td><a href="drivers/RFID-MFRC522-SPI">RFID MFRC522 SPI driver</a></td>
   <td><a href="drivers/WiFi-ESP8266">ESP8266 serial WiFi</a></td>
- </tr>
- <tr>
   <td><a href="drivers/Stepper motor drivers/AccelStepper">AccelStepper stepper motor driver</a></td>
   <td><a href="drivers/TFT-ST7735-display">TFT ST7735 display</a></td>
-  <td><a href="drivers/ESP32-Storage">ESP32 Storage</a></td>
-  <td><a href="drivers/Simple-Web-Server">Web Server</a></td>
  </tr>
  <tr>
   <td><a href="drivers/Keypad-PCF8574">Keypad with PCF8574</a></td>
-  <td><a href="drivers/Sensor-DS18B20">DS18B20 driver</a></td>
-  <td><a href="drivers/ESP32-WS2812">ESP32 WS2812 driver</a></td>
   <td><a href="drivers/RFID_RDM6300_UART">RFID RDM6300 UART driver</a></td>  
- </tr>
- <tr>
   <td><a href="drivers/Blues-Wireless">Blues Wireless Notecard</a></td>  
+  <td><!--<a href=""</a>--></td>
  </tr>
 </table>
 
@@ -53,9 +44,9 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
  </tr>
  <tr>
   <td><a href="libraries/nanoFramework.OpenThread">Library to work with the 6lowpan Thread network</a></td>
-  <td><a href="libraries/nanoFramework.Modbus">Library for SerialPort Modbus-RTU</a></td>
   <td><a href="libraries/nanoFramework.Tarantool">Library to work with the Tarantool NoSql database</a></td>
   <td><a href="libraries/nanoFramework.Tarantool.Queue">Library to work with the Tarantool.Queue, a full-fledged message broker</a></td>
+  <td><!--<a href=""</a>--></td>
  </tr>
 </table>
 
@@ -63,10 +54,10 @@ You will find more drivers, libraries, screens and sensors in [nanoFramework.IoT
 
 <table>
  <tr>
-  <td><a href="extensions/stm32/gpiocontroller">GpioController STM32 extensions</a></td>
   <td><a href="utilities/Debug2Uart">Output debug messages to Uart</a></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
-  <td><!--<a href="Utility/util3">Utility Three</a>--></td>
+  <td><!--<a href=""</a>--></td>
+  <td><!--<a href=""</a>--></td>
+  <td><!--<a href=""</a>--></td>
  </tr>
 </table>
 
